@@ -44,9 +44,15 @@ class User
      */
     private $beers;
 
+    /**
+     * @ORM\OneToMany(targetEntity=BeerScoreComment::class, mappedBy="user")
+     */
+    private $Id;
+
     public function __construct()
     {
         $this->beers = new ArrayCollection();
+        $this->Id = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -127,6 +133,29 @@ class User
             // set the owning side to null (unless already changed)
             if ($beer->getUserId() === $this) {
                 $beer->setUserId(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function addId(BeerScoreComment $id): self
+    {
+        if (!$this->Id->contains($id)) {
+            $this->Id[] = $id;
+            $id->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeId(BeerScoreComment $id): self
+    {
+        if ($this->Id->contains($id)) {
+            $this->Id->removeElement($id);
+            // set the owning side to null (unless already changed)
+            if ($id->getUser() === $this) {
+                $id->setUser(null);
             }
         }
 

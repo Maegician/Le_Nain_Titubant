@@ -33,6 +33,12 @@ class BeerScoreComment
      */
     private $beer;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="Id")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -70,6 +76,18 @@ class BeerScoreComment
     public function setBeer(?Beer $beer): self
     {
         $this->beer = $beer;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
