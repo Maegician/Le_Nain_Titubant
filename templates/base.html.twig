@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}WF3 App{% endblock %}</title>
+        {{ encore_entry_link_tags('app') }}
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+            <a href="#" class="navbar-brand">WF3 App</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="main-menu">
+            {{ knp_menu_render('main', {'style': 'horizontal'}) }}
+            </div>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="{{ path('app_app_home', {'_locale': 'fr'}) }}">FR</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ path('app_app_home', {'_locale': 'en'}) }}">EN</a></li>
+            </ul>
+        </nav>
+        <div class="container">
+            {# Affichage des messages flash #}
+            <div class="flash-message">
+                {% for type, messages in app.flashes %}
+                    {% for message in messages %}
+                    {% if type == "error" %}{% set type = "danger" %}{% endif %}
+                    <div class="alert alert-{{ type }} alert-dismissible fade show" role="alert">
+                        {{ message|raw }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+            {% block body %}{% endblock %}
+        </div>
+        
+        {{ encore_entry_script_tags('app') }}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
