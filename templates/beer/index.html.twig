@@ -1,0 +1,13 @@
+{% if nbPages > 1 %}
+    <nav aria-label="...">
+        <ul class="pagination">
+        {% for p in 1..nbPages %}
+            <li class="page-item {{ html_classes({'active': (p == page)}) }}" aria-current="page">
+                <a class="page-link" href="{{ path('app_beer_index', {'page': p}) }}">
+                    {{ p }}
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+    </nav>
+{% endif %}
