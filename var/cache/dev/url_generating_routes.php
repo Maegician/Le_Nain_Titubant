@@ -20,4 +20,5 @@ return [
     'beer_app_beer_index' => [['_locale', 'page'], ['page' => 1, '_controller' => 'App\\Controller\\BeerController::index'], ['page' => '\\d+'], [['variable', '/', '\\d+', 'page', true], ['text', '/beer/index'], ['variable', '/', '[^/]++', '_locale', true]], [], []],
     'beer_app_beer_edit' => [['_locale', 'id'], ['_controller' => 'App\\Controller\\BeerController::edit'], ['id' => '\\d+'], [['text', '/edit'], ['variable', '/', '\\d+', 'id', true], ['text', '/beer'], ['variable', '/', '[^/]++', '_locale', true]], [], []],
     'beer_app_beer_delete' => [['_locale', 'id'], ['_controller' => 'App\\Controller\\BeerController::delete'], ['id' => '\\d+'], [['text', '/delete'], ['variable', '/', '\\d+', 'id', true], ['text', '/beer'], ['variable', '/', '[^/]++', '_locale', true]], [], []],
+    'beer_app_beer_show' => [['_locale', 'id'], ['_controller' => 'App\\Controller\\BeerController::show'], ['id' => '\\d+'], [['variable', '/', '\\d+', 'id', true], ['text', '/beer'], ['variable', '/', '[^/]++', '_locale', true]], [], []],
 ];

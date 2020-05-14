@@ -5196,17 +5196,25 @@
         <argument key="entityManager" type="service" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
-    <service id=".service_locator.TlfuceM" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.u6H4dcX" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="beer" type="service" id=".errored..service_locator.u6H4dcX.App\Entity\Beer"/>
+      </argument>
+    </service>
+    <service id=".service_locator._YC6EZp" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\BeerController::delete" type="service" id=".service_locator.oMTwbJ."/>
         <argument key="App\Controller\BeerController::edit" type="service" id=".service_locator.oMTwbJ."/>
         <argument key="App\Controller\BeerController::index" type="service" id=".service_locator.hkwX.OX"/>
         <argument key="App\Controller\BeerController::new" type="service" id=".service_locator.D6XybyG"/>
+        <argument key="App\Controller\BeerController::show" type="service" id=".service_locator.u6H4dcX"/>
         <argument key="App\Controller\BeerController:delete" type="service" id=".service_locator.oMTwbJ."/>
         <argument key="App\Controller\BeerController:edit" type="service" id=".service_locator.oMTwbJ."/>
         <argument key="App\Controller\BeerController:index" type="service" id=".service_locator.hkwX.OX"/>
         <argument key="App\Controller\BeerController:new" type="service" id=".service_locator.D6XybyG"/>
+        <argument key="App\Controller\BeerController:show" type="service" id=".service_locator.u6H4dcX"/>
       </argument>
     </service>
     <service id=".service_locator.Y7gDuDN" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -5665,12 +5673,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.TlfuceM"/>
+      <argument type="service" id=".service_locator._YC6EZp"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.TlfuceM"/>
+      <argument type="service" id=".service_locator._YC6EZp"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -5681,6 +5689,7 @@
       <factory class="Symfony\Component\HttpClient\HttpClient" method="create"/>
     </service>
     <service id=".errored..service_locator.oMTwbJ..App\Entity\Beer" class="App\Entity\Beer"/>
+    <service id=".errored..service_locator.u6H4dcX.App\Entity\Beer" class="App\Entity\Beer"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <argument type="service" id=".service_locator.gXHuSzL"/>
       <argument type="collection">
@@ -6078,7 +6087,7 @@
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.TlfuceM"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator._YC6EZp"/>
     <service id="knp_menu.menu_provider" alias="knp_menu.menu_provider.chain"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
