@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Administration - WF3 APP{% endblock %}</title>
+        {{ encore_entry_link_tags('admin') }}
+        {% block stylesheets %}
+        {% endblock %}
+    </head>
+    <body>
+        <div class="wrapper">
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    WF3 App
+                </div>
+                {{ knp_menu_render('admin', {'style': 'vertical'}) }}
+            </nav>
+
+            <!-- Page content -->
+            <div id="content" class="container-fluid">
+                {# Affichage des messages flash #}
+                <div class="flash-message">
+                    {% for type, messages in app.flashes %}
+                        {% for message in messages %}
+                        {% if type == "error" %}{% set type = "danger" %}{% endif %}
+                        <div class="alert alert-{{ type }} alert-dismissible fade show" role="alert">
+                            {{ message|raw }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+                {% block body %}
+                {% endblock %}
+            </div>
+        </div>
+        {{ encore_entry_script_tags('admin') }}
+        {% block javascripts %}
+        {% endblock %}
+    </body>
+</html>

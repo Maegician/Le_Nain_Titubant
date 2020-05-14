@@ -1,0 +1,81 @@
+$primary: rgb(45, 163, 128);
+$success: rgb(39, 158, 98);
+
+@import '~bootswatch/dist/lumen/_variables.scss';
+@import 'common.scss';
+@import '~bootswatch/dist/lumen/_bootswatch.scss';
+
+$side-width : 250px;
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: $side-width;
+    max-width: $side-width;
+    position: fixed;
+    min-height: 100vh;
+    background: lighten($primary, 10%);
+    color: #fff;
+
+    .sidebar-header {
+        padding: 12px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        background: $primary;
+    }
+
+    ul.components {
+        padding: 20px 0;
+        border-bottom: 1px solid $primary;
+    }
+
+    ul {
+        p {
+            color: #fff;
+            padding: 10px;
+        }
+
+        li a {
+            padding: 10px;
+            font-size: 1.1em;
+            display: block;
+            color:#fff;
+
+            &:hover {
+                background-color: $primary;
+                text-decoration: none;
+            }
+        }
+    }
+
+    a[data-toggle="collapse"] {
+        position: relative;
+    }
+    
+    .dropdown-toggle::after {
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+    }
+
+    ul ul a {
+        font-size: 0.9em !important;
+        padding-left: 30px !important;
+        background: $primary;
+        color:#fff;
+    }
+
+    ul li.active > a, a[aria-expanded="true"] {
+        color: #fff;
+        background: $primary;
+    }
+}
+
+#content {
+    margin-left: $side-width;
+}
