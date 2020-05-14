@@ -38,6 +38,7 @@ return [
                         .'|index(?:/(\\d+))?(*:225)'
                         .'|(\\d+)/edit(*:243)'
                         .'|(\\d+)/delete(*:263)'
+                        .'|(\\d+)(*:276)'
                     .')'
                 .')'
             .')/?$}sDu',
@@ -54,8 +55,9 @@ return [
         201 => [[['_route' => 'beer_app_beer_new', '_controller' => 'App\\Controller\\BeerController::new'], ['_locale'], null, null, false, false, null]],
         225 => [[['_route' => 'beer_app_beer_index', 'page' => 1, '_controller' => 'App\\Controller\\BeerController::index'], ['_locale', 'page'], null, null, false, true, null]],
         243 => [[['_route' => 'beer_app_beer_edit', '_controller' => 'App\\Controller\\BeerController::edit'], ['_locale', 'id'], null, null, false, false, null]],
-        263 => [
-            [['_route' => 'beer_app_beer_delete', '_controller' => 'App\\Controller\\BeerController::delete'], ['_locale', 'id'], null, null, false, false, null],
+        263 => [[['_route' => 'beer_app_beer_delete', '_controller' => 'App\\Controller\\BeerController::delete'], ['_locale', 'id'], null, null, false, false, null]],
+        276 => [
+            [['_route' => 'beer_app_beer_show', '_controller' => 'App\\Controller\\BeerController::show'], ['_locale', 'id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],
