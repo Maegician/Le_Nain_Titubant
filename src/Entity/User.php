@@ -3,15 +3,13 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
-// TODO: implements UserInterface
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -21,73 +19,34 @@ class User
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=180)
-     */
-    private $email;
-
-    /**
-     * @ORM\Column(type="text")
-     */
-    private $roles;
-
-    /**
-     * @ORM\Column(type="string", length=16)
+     * @ORM\Column(type="string", length=180, unique=true)
      */
     private $username;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="json")
+     */
+    private $roles = [];
+
+    /**
+     * @var string The hashed password
+     * @ORM\Column(type="string")
      */
     private $password;
-
-    /**
-     * @ORM\OneToMany(targetEntity=Beer::class, mappedBy="userId")
-     */
-    private $beers;
-
-    /**
-     * @ORM\OneToMany(targetEntity=BeerScoreComment::class, mappedBy="user")
-     */
-    private $Id;
-
-    public function __construct()
-    {
-        $this->beers = new ArrayCollection();
-        $this->Id = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getEmail(): ?string
+    /**
+     * A visual identifier that represents this user.
+     *
+     * @see UserInterface
+     */
+    public function getUsername(): string
     {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    public function getRoles(): ?string
-    {
-        return $this->roles;
-    }
-
-    public function setRoles(string $roles): self
-    {
-        $this->roles = $roles;
-
-        return $this;
-    }
-
-    public function getUsername(): ?string
-    {
-        return $this->username;
+        return (string) $this->username;
     }
 
     public function setUsername(string $username): self
@@ -97,9 +56,31 @@ class User
         return $this;
     }
 
-    public function getPassword(): ?string
+    /**
+     * @see UserInterface
+     */
+    public function getRoles(): array
     {
-        return $this->password;
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getPassword(): string
+    {
+        return (string) $this->password;
     }
 
     public function setPassword(string $password): self
@@ -110,56 +91,19 @@ class User
     }
 
     /**
-     * @return Collection|Beer[]
+     * @see UserInterface
      */
-    public function getBeers(): Collection
+    public function getSalt()
     {
-        return $this->beers;
+        // not needed when using the "bcrypt" algorithm in security.yaml
     }
 
-    public function addBeer(Beer $beer): self
+    /**
+     * @see UserInterface
+     */
+    public function eraseCredentials()
     {
-        if (!$this->beers->contains($beer)) {
-            $this->beers[] = $beer;
-            $beer->setUserId($this);
-        }
-
-        return $this;
-    }
-
-    public function removeBeer(Beer $beer): self
-    {
-        if ($this->beers->contains($beer)) {
-            $this->beers->removeElement($beer);
-            // set the owning side to null (unless already changed)
-            if ($beer->getUserId() === $this) {
-                $beer->setUserId(null);
-            }
-        }
-
-        return $this;
-    }
-
-    public function addId(BeerScoreComment $id): self
-    {
-        if (!$this->Id->contains($id)) {
-            $this->Id[] = $id;
-            $id->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeId(BeerScoreComment $id): self
-    {
-        if ($this->Id->contains($id)) {
-            $this->Id->removeElement($id);
-            // set the owning side to null (unless already changed)
-            if ($id->getUser() === $this) {
-                $id->setUser(null);
-            }
-        }
-
-        return $this;
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
     }
 }
