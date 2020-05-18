@@ -23,7 +23,7 @@ class BeerType extends AbstractType
     }
     public function configureOptions(OptionsResolver $resolver)
     {
-        // Indique que ce formulaire utilise des objets Article
+        // Indique que ce formulaire utilise des objets Beer
         $resolver->setDefaults([
             'data_class' => Beer::class,
         ]);

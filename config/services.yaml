@@ -4,6 +4,7 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+    zippo_default_country: FR
 
 services:
     # default configuration for services in *this* file
@@ -25,3 +26,9 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    #Défini le service Menu\Builder dans un tag 'knp_menu.menu_builder'
+    App\Menu\Builder:
+        tags:
+            - { name: knp_menu.menu_builder, method: mainMenu, alias: main }
+            - { name: knp_menu.menu_builder, method: adminMenu, alias: admin }

@@ -40,10 +40,10 @@ class Beer
     private $brewingType;
 
     /**
-     * @ORM\ManyToOne(targetEntity=category::class)
+     * @ORM\ManyToOne(targetEntity=Category::class)
      * @ORM\JoinColumn(nullable=false)
      */
-    private $categoryId;
+    private $category;
 
     /**
      * @ORM\OneToMany(targetEntity=BeerScoreComment::class, mappedBy="beer")
@@ -51,16 +51,16 @@ class Beer
     private $Id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="beers")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="beers")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $userId;
+    private $user;
 
     /**
-     * @ORM\OneToOne(targetEntity=image::class, cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Image::class, cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
-    private $imageId;
+    private $image;
 
     public function __construct()
     {
@@ -120,14 +120,14 @@ class Beer
         return $this;
     }
 
-    public function getCategoryId(): ?category
+    public function getCategory(): ?category
     {
-        return $this->categoryId;
+        return $this->category;
     }
 
-    public function setCategoryId(?category $categoryId): self
+    public function setCategory(?category $category): self
     {
-        $this->categoryId = $categoryId;
+        $this->category = $category;
 
         return $this;
     }
@@ -155,26 +155,26 @@ class Beer
         return $this;
     }
 
-    public function getUserId(): ?user
+    public function getUser(): ?user
     {
-        return $this->userId;
+        return $this->user;
     }
 
-    public function setUserId(?user $userId): self
+    public function setUser(?user $user): self
     {
-        $this->userId = $userId;
+        $this->user = $user;
 
         return $this;
     }
 
-    public function getImageId(): ?image
+    public function getImage(): ?image
     {
-        return $this->imageId;
+        return $this->image;
     }
 
-    public function setImageId(image $imageId): self
+    public function setImage(image $image): self
     {
-        $this->imageId = $imageId;
+        $this->image = $image;
 
         return $this;
     }
