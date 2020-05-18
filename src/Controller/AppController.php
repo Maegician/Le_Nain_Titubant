@@ -15,6 +15,6 @@ class AppController extends AbstractController
      */
     public function home(): Response
     {
-        return $this->render('app/home.html.twig', ['name' => 'Pierre']);
+        return $this->render('app/home.html.twig');
     }
 }

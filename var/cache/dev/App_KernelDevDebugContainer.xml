@@ -84,6 +84,7 @@
     <parameter key="kernel.container_class">App_KernelDevDebugContainer</parameter>
     <parameter key="container.dumper.inline_class_loader">true</parameter>
     <parameter key="container.dumper.inline_factories">true</parameter>
+    <parameter key="zippo_default_country">FR</parameter>
     <parameter key="fragment.renderer.hinclude.global_template"></parameter>
     <parameter key="fragment.path">/_fragment</parameter>
     <parameter key="kernel.secret">%env(APP_SECRET)%</parameter>
@@ -128,7 +129,7 @@
     <parameter key="knp_menu.twig.extension.class">Knp\Menu\Twig\MenuExtension</parameter>
     <parameter key="knp_menu.renderer.twig.class">Knp\Menu\Renderer\TwigRenderer</parameter>
     <parameter key="knp_menu.renderer.twig.options" type="collection"/>
-    <parameter key="knp_menu.renderer.twig.template">@KnpMenu/menu.html.twig</parameter>
+    <parameter key="knp_menu.renderer.twig.template">menu/menu.html.twig</parameter>
     <parameter key="knp_menu.default_renderer">twig</parameter>
     <parameter key="swiftmailer.mailer.default.transport.name">dynamic</parameter>
     <parameter key="swiftmailer.spool.default.memory.path">C:\Users\kensh\Documents\GitHub\Le_Nain_Titubant\var\cache\dev/swiftmailer/spool/default</parameter>
@@ -358,6 +359,13 @@
     <service id="App\Form\BeerType" class="App\Form\BeerType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Menu\Builder" class="App\Menu\Builder" autowire="true" autoconfigure="true">
+      <tag name="knp_menu.menu_builder" method="mainMenu" alias="main"/>
+      <tag name="knp_menu.menu_builder" method="adminMenu" alias="admin"/>
+      <argument type="service" id="knp_menu.factory"/>
+      <argument type="service" id="security.helper"/>
+      <argument type="service" id="App\Repository\CategoryRepository"/>
+    </service>
     <service id="App\Repository\BeerRepository" class="App\Repository\BeerRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -377,6 +385,9 @@
     <service id="App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Twig\AppExtension" class="App\Twig\AppExtension" autowire="true" autoconfigure="true">
+      <tag name="twig.extension"/>
     </service>
     <service id="argument_metadata_factory" class="Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory" public="false"/>
     <service id="response_listener" class="Symfony\Component\HttpKernel\EventListener\ResponseListener" public="false">
@@ -3072,7 +3083,16 @@
     </service>
     <service id="knp_menu.menu_provider.lazy" class="Knp\Menu\Provider\LazyProvider" public="false">
       <tag name="knp_menu.provider"/>
-      <argument type="collection"/>
+      <argument type="collection">
+        <argument key="main" type="collection">
+          <argument type="service" id="App\Menu\Builder"/>
+          <argument>mainMenu</argument>
+        </argument>
+        <argument key="admin" type="collection">
+          <argument type="service" id="App\Menu\Builder"/>
+          <argument>adminMenu</argument>
+        </argument>
+      </argument>
     </service>
     <service id="knp_menu.menu_provider.builder_alias" class="Knp\Bundle\MenuBundle\Provider\BuilderAliasProvider" public="false">
       <tag name="knp_menu.provider"/>
@@ -3106,7 +3126,7 @@
     <service id="knp_menu.renderer.twig" class="Knp\Menu\Renderer\TwigRenderer">
       <tag name="knp_menu.renderer" alias="twig"/>
       <argument type="service" id="twig"/>
-      <argument>@KnpMenu/menu.html.twig</argument>
+      <argument>menu/menu.html.twig</argument>
       <argument type="service" id="knp_menu.matcher"/>
       <argument type="collection"/>
     </service>
@@ -3267,6 +3287,9 @@
       </call>
       <call method="addExtension">
         <argument type="service" id="twig.extension.dump"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="App\Twig\AppExtension"/>
       </call>
       <call method="addExtension">
         <argument type="service" id="knp_menu.twig.extension"/>
@@ -4967,6 +4990,8 @@
     <service id=".abstract.instanceof.App\Repository\ImageRepository" class="App\Repository\ImageRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Twig\Extension\ExtensionInterface.0.App\Twig\AppExtension" class="App\Twig\AppExtension" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Twig\AppExtension" class="App\Twig\AppExtension" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.CmORmuK" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">

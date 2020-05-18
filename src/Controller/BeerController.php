@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 /**
- * @Route("/beer", name="beer_")
+ * @Route("/beer")
  */
 class BeerController extends AbstractController
 {

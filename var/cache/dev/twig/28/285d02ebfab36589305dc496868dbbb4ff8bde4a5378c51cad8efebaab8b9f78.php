@@ -65,8 +65,6 @@ class __TwigTemplate_a31148aedb206e469c15c3a318e0895009ce535c4006898412b690a0cc3
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
-        echo "Bonjour ";
-        echo twig_escape_filter($this->env, (isset($context["name"]) || array_key_exists("name", $context) ? $context["name"] : (function () { throw new RuntimeError('Variable "name" does not exist.', 4, $this->source); })()), "html", null, true);
         echo "
 ";
         
@@ -97,7 +95,7 @@ class __TwigTemplate_a31148aedb206e469c15c3a318e0895009ce535c4006898412b690a0cc3
         return new Source("{% extends 'base.html.twig' %}
 
 {% block body %}
-Bonjour {{ name }}
+
 {% endblock body %}", "app/home.html.twig", "C:\\Users\\kensh\\Documents\\GitHub\\Le_Nain_Titubant\\templates\\app\\home.html.twig");
     }
 }

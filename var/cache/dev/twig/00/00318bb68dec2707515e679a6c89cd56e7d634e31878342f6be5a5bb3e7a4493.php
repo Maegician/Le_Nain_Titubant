@@ -63,7 +63,7 @@ class __TwigTemplate_146757ecbf763288888689ec31afab7e815ca1cdfad7f0e84f912417615
         echo "    </head>
     <body>
         <nav class=\"navbar navbar-expand-lg navbar-dark bg-primary fixed-top\">
-            <a href=\"#\" class=\"navbar-brand\">WF3 App</a>
+            <a href=\"#\" class=\"navbar-brand\">Le Nain Titubant</a>
             <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#main-menu\" aria-controls=\"main-menu\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
                 <span class=\"navbar-toggler-icon\"></span>
             </button>
@@ -163,7 +163,7 @@ class __TwigTemplate_146757ecbf763288888689ec31afab7e815ca1cdfad7f0e84f912417615
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "WF3 App";
+        echo "Le Nain Titubant";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -247,13 +247,13 @@ class __TwigTemplate_146757ecbf763288888689ec31afab7e815ca1cdfad7f0e84f912417615
 <html>
     <head>
         <meta charset=\"UTF-8\">
-        <title>{% block title %}WF3 App{% endblock %}</title>
+        <title>{% block title %}Le Nain Titubant{% endblock %}</title>
         {{ encore_entry_link_tags('app') }}
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
         <nav class=\"navbar navbar-expand-lg navbar-dark bg-primary fixed-top\">
-            <a href=\"#\" class=\"navbar-brand\">WF3 App</a>
+            <a href=\"#\" class=\"navbar-brand\">Le Nain Titubant</a>
             <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#main-menu\" aria-controls=\"main-menu\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
                 <span class=\"navbar-toggler-icon\"></span>
             </button>

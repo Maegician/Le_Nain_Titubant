@@ -6,7 +6,7 @@
 use Symfony\Component\DependencyInjection\Dumper\Preloader;
 
 require dirname(__DIR__, 3).'\\vendor/autoload.php';
-require __DIR__.'/Container1RrnYLf/App_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerXDtYRmW/App_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -32,6 +32,8 @@ $classes[] = 'Symfony\Component\DependencyInjection\ServiceLocator';
 $classes[] = 'App\Controller\AppController';
 $classes[] = 'App\Controller\BeerController';
 $classes[] = 'App\Form\BeerType';
+$classes[] = 'App\Menu\Builder';
+$classes[] = 'Symfony\Component\Security\Core\Security';
 $classes[] = 'App\Repository\BeerRepository';
 $classes[] = 'App\Repository\BeerScoreCommentRepository';
 $classes[] = 'App\Repository\CategoryRepository';
@@ -443,6 +445,7 @@ $classes[] = 'Symfony\Bridge\Twig\Extension\FormExtension';
 $classes[] = 'Symfony\Bridge\Twig\Extension\LogoutUrlExtension';
 $classes[] = 'Symfony\Bridge\Twig\Extension\SecurityExtension';
 $classes[] = 'Symfony\Bridge\Twig\Extension\DumpExtension';
+$classes[] = 'App\Twig\AppExtension';
 $classes[] = 'Knp\Menu\Twig\MenuExtension';
 $classes[] = 'Knp\Menu\Twig\Helper';
 $classes[] = 'Knp\Menu\Renderer\PsrProvider';
