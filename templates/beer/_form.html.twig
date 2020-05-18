@@ -1,0 +1,17 @@
+
+{{ form_start(form) }}
+{% embed 'decorators/_card.html.twig' %}
+    {% block body %}
+        {{ form_errors(form) }} {# Affiche les eventuelles erreurs #}
+        {{ form_row(form.name) }}
+        {{ form_row(form.origin) }}
+        {{ form_row(form.alcohol) }}
+        
+    {% endblock %}
+
+    {% block footer %}
+    {{ form_widget(form.save) }}
+    {% endblock %}
+
+{% endembed %}
+{{ form_end(form) }}
