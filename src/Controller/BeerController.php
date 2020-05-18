@@ -13,12 +13,6 @@ use App\Repository\BeerRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-use App\Form\BeerType;
-use App\Repository\BeerRepository;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-
-
 /**
  * @Route("/beer")
  */
