@@ -97,3 +97,4 @@ class BeerController extends AbstractController
         return $this->render('beer/show.html.twig', ['beer' => $beer]);
     }
 }
+
