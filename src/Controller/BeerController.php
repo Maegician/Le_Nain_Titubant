@@ -35,6 +35,15 @@ class BeerController extends AbstractController
         ]);
     }
 
+   /**  
+    * @Route("/new") 
+    * @Security("is_granted('ROLE_ADMIN')")  
+    */
+    public function new(Request $request, EntityManagerInterface $entityManager): Response 
+    {
+    // ... 
+    }
+
     /**
      * @route("/index/{page}", requirements = {"page" : "\d+"}, defaults = {"page" : 1})
      */

@@ -37,7 +37,7 @@ class User
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $password;
+    private $password;    
 
     /**
      * @ORM\OneToMany(targetEntity=Beer::class, mappedBy="userId")
@@ -160,5 +160,10 @@ class User
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getUsername();
     }
 }
