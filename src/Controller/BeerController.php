@@ -21,18 +21,38 @@ class BeerController extends AbstractController
     /**
      * @Route("/add")
      */
-    public function new(EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $beer = new Beer;
 
         // Creation du formulaire et envoi de l'entitée $beer
         $form = $this->createForm(BeerType::class, $beer);
 
+         // Insérer l'objet Request dans le formulaire pour obtenir les données $_POST
+         $form->handleRequest($request);
+
+         // Test si le formulaire a bien été envoyé ET s'il est valide
+         if ($form->isSubmitted() && $form->isValid()) {
+             // Persiste l'objet Article, indique à doctrine qu'on va ajouter un objet (ne fait pas de requête INSERT)
+             $entityManager->persist($beer);
+ 
+             // Enregistrement de l'objet (exécute la requête)
+             $entityManager->flush();
+ 
+             // Générer un message flash
+            //  $this->addFlash('success', $translator->trans('article.new.success', ['%title%' => $article->getTitle()]));
+ 
+             // redirection
+             return $this->redirectToRoute('app_beer_index');
+         }
+
         // Ne pas oublier de créer le fichier twig
         return $this->render('beer/add.html.twig', [
         'beer' => $beer,
         'form' => $form->createView(),
         ]);
+
+
     }
 
  
