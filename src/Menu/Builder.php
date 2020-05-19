@@ -48,16 +48,17 @@ class Builder
         // ajout des catégories - utilisation de CategoryRepository
         $categories = $this->categoryRepository->findAll();
         // sous-menu (dropdown)
-        $menuCat = $menu->addChild('menu.categories', ['url' => '#']);
+        $menuCat = $menu->addChild('menu.categories', ['uri' => '#']);
 
         foreach ($categories as $cat) {
             $menuCat->addChild($cat->getName(), [
                 'route' => 'category_show', 
-                'routeParameters' => ['id' => $cat->getId()]]);
+                'routeParameters' => ['id' => $cat->getId()],
+                ])->setExtra('translation_domain', false); // élément du menu à ne pas traduire
         }
 
         $categories = $this->categoryRepository->findAll();
-        $menuCat = $menu->addChild('categories', ['url' => '#']);
+        $menuCat = $menu->addChild('categories', ['uri' => '#']);
         foreach ($categories as $category) {
             $menuCat->addChild($category->getName(), ['route' => 'category_show', 'routeParameters' => ['id' => $category->getId()]]);
         }
