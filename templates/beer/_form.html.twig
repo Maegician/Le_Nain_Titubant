@@ -1,4 +1,3 @@
-
 {{ form_start(form) }}
 {% embed 'decorators/_card.html.twig' %}
     {% block body %}
@@ -7,13 +6,21 @@
         {{ form_row(form.origin) }}
         {{ form_row(form.alcohol) }}
         {{ form_row(form.brewing_type) }}
-        {# {{ form_row(form.categories) }}
-        {{ form_row(form.image) }} #}
-        
+        {{ form_row(form.category) }}
+        <div class="media mb-3">
+            {% if beer is defined and beer.image is not empty %}
+            {# asset permet de pointer sur le dossier 'public', twig appelle la méthode 'getWebPath' de l'image #}
+            <img src="{{ asset(beer.image.webPath) }}" class="align-left-center mr-3" style="max-width:180px"/>
+            {% endif %}
+            <div class="media-body">
+                {{ form_row(form.image) }}
+                {{ form_row(form.deleteImage) }}
+            </div>
+        </div>
     {% endblock %}
 
     {% block footer %}
-    {{ form_widget(form.save) }}
+        {{ form_widget(form.save) }}
     {% endblock %}
 
 {% endembed %}

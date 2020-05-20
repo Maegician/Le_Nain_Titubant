@@ -2,11 +2,10 @@
 
 namespace App\Entity;
 
-use App\Repository\CategoryRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=CategoryRepository::class)
+ * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
  */
 class Category
 {
@@ -37,5 +36,10 @@ class Category
         $this->name = $name;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }
