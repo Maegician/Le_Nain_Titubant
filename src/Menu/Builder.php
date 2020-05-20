@@ -78,7 +78,7 @@ class Builder
         $menu->addChild('menu.category', ['route' => 'category_index']);
         $menu->addChild('menu.images', ['route' => 'image_index']);
         $menu->addChild('menu.users', ['route' => 'user_index']);
-        $menu->addChild('menu.logout', ['route' => 'app_logout']);
+        $menu->addChild('menu.back', ['route' => 'app_app_home']);
 
         return $menu;
     }
