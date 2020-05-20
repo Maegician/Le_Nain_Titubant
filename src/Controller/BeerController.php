@@ -12,6 +12,7 @@ use App\Form\BeerType;
 use App\Repository\BeerRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
  * @Route("/beer")
@@ -20,6 +21,7 @@ class BeerController extends AbstractController
 {
     /**
      * @Route("/add")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function add(Request $request, EntityManagerInterface $entityManager): Response
     {
