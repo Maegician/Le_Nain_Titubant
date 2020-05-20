@@ -1,4 +1,4 @@
-article:
+beer:
   result_count: >-
     {count, plural,
       =0 {Aucune bière trouvée}

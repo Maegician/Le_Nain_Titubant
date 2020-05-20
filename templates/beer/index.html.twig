@@ -22,6 +22,7 @@
                     <th>{{ 'beer.origin'|trans }}</th>
                     <th>{{ 'beer.alcohol'|trans }}</th>
                     <th>{{ 'beer.brewing_type'|trans }}</th>
+                    <th>{{ 'beer.user'|trans }}</th>
                     <th>{{ 'actions'|trans }}</th>
                 </tr>
             </thead>
@@ -34,14 +35,11 @@
                         {% endif %}
                     </td>
                     <td>{{ beer.name }}</td>
-                    <td>
-                        {% for category in beer.categories %}
-                            <span class="badge badge-secondary m-1">{{ category }}</span>
-                        {% endfor %}
-                    </td>
+                    <td><span class="badge badge-secondary m-1">{{ beer.category }}</span></td>
+                    <td>{{ beer.origin }}</td>
+                    <td>{{ beer.alcohol}}</td>
+                    <td>{{ beer.brewingType}}</td>
                     <td>{{ beer.user }}</td>
-                    <td>{{ beer.dateCreate|date('d/m/Y') }}</td>
-                    <td>{{ beer.dateUpdate|date('d/m/Y') }}</td>
                     <td>
                         <a href="{{ path('app_beer_edit', {'id': beer.id}) }}" class="btn btn-secondary"><i class="fas fa-edit"></i></a>
                         <a href="{{ path('app_beer_delete', {'id': beer.id}) }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
