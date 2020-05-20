@@ -37,6 +37,11 @@
             </div>
             {% block body %}{% endblock %}
         </div>
+        <footer>
+            {% block footer %}
+            <p>2020 &copy; Made with love by <span>Alex, Mégane, Michel &amp; Vanessa</span></p>
+            {% endblock %}
+        </footer>
         
         {{ encore_entry_script_tags('app') }}
         {% block javascripts %}{% endblock %}
