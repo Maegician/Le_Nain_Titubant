@@ -16,12 +16,12 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
  * @Route("/beer")
+ * @Security("is_granted('ROLE_ADMIN')")
  */
 class BeerController extends AbstractController
 {
     /**
      * @Route("/add")
-     * @Security("is_granted('ROLE_USER')")
      */
     public function add(Request $request, EntityManagerInterface $entityManager): Response
     {

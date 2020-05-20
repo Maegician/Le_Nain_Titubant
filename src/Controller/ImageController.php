@@ -13,6 +13,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
  * @Route("/image")
+ * @Security("is_granted('ROLE_ADMIN')")
  */
 class ImageController extends AbstractController
 {
