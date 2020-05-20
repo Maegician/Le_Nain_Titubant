@@ -27,7 +27,17 @@ services:
     # please note that last definitions always *replace* previous ones
 
     #Défini le service Menu\Builder dans un tag 'knp_menu.menu_builder'
-    App\Menu\Builder:
+    #App\Menu\Builder:
+    #   tags:
+    #       - { name: knp_menu.menu_builder, method: mainMenu, alias: main }
+    #       - { name: knp_menu.menu_builder, method: adminMenu, alias: admin }
+
+    app.main_menu:
+        class: App\Menu\Builder
         tags:
             - { name: knp_menu.menu_builder, method: mainMenu, alias: main }
+
+    app.admin_menu:
+        class: App\Menu\Builder
+        tags:
             - { name: knp_menu.menu_builder, method: adminMenu, alias: admin }
