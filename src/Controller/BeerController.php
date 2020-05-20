@@ -21,9 +21,10 @@ class BeerController extends AbstractController
     /**
      * @Route("/add")
      */
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function add(Request $request, EntityManagerInterface $entityManager): Response
     {
         $beer = new Beer;
+        $beer->setUser($this->getUser());
 
         // Creation du formulaire et envoi de l'entitée $beer
         $form = $this->createForm(BeerType::class, $beer);
@@ -33,14 +34,14 @@ class BeerController extends AbstractController
 
          // Test si le formulaire a bien été envoyé ET s'il est valide
          if ($form->isSubmitted() && $form->isValid()) {
-             // Persiste l'objet Article, indique à doctrine qu'on va ajouter un objet (ne fait pas de requête INSERT)
+             // Persiste l'objet Beer, indique à doctrine qu'on va ajouter un objet (ne fait pas de requête INSERT)
              $entityManager->persist($beer);
  
              // Enregistrement de l'objet (exécute la requête)
              $entityManager->flush();
  
              // Générer un message flash
-            //  $this->addFlash('success', $translator->trans('article.new.success', ['%title%' => $article->getTitle()]));
+            //  $this->addFlash('success', $translator->trans('beer.add.success', ['%title%' => $beer->getTitle()]));
  
              // redirection
              return $this->redirectToRoute('app_beer_index');
