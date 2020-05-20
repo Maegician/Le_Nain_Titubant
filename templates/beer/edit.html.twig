@@ -1,8 +1,8 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin_base.html.twig' %}
 
 {% block body %}
 
-    <h1>Modifier une bière</h1>  
+    <h1>{{'beer.edit'|trans}}</h1>  
 
     {# Affichage du formulaire complet #}
     {% include 'beer/_form.html.twig' %}
