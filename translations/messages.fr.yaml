@@ -7,3 +7,4 @@ menu:
   images: .icon-images Photos
   users: .icon-users Utilisateurs
   register: .icon-user-plus Inscription
+  back: Retour à la page d'accueil
