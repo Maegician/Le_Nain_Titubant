@@ -33,22 +33,10 @@ class Builder
         // Ajout d'un item
         $menu->addChild('menu.beers', ['route' => 'app_beer_index']);
 
-        // Utilisation du service security pour tester le rôle
-        if ($this->security->isGranted('ROLE_ADMIN')) {
-            $menu->addChild('menu.admin', ['route' => 'app_app_home']);
-        }
-
-        // menu connexion
-        if ($this->security->isGranted('ROLE_USER')) {
-            $menu->addChild('menu.logout', ['route' => 'app_logout']);
-        } else {
-            $menu->addChild('menu.login', ['route' => 'app_login']);
-        }
-
         // ajout des catégories - utilisation de CategoryRepository
         $categories = $this->categoryRepository->findAll();
         // sous-menu (dropdown)
-        $menuCat = $menu->addChild('menu.categories', ['uri' => '#']);
+        $menuCat = $menu->addChild('menu.category', ['uri' => '#']);
 
         foreach ($categories as $cat) {
             $menuCat->addChild($cat->getName(), [
@@ -58,9 +46,23 @@ class Builder
         }
 
         $categories = $this->categoryRepository->findAll();
-        $menuCat = $menu->addChild('categories', ['uri' => '#']);
+        // $menuCat = $menu->addChild('category', ['uri' => '#']);
         foreach ($categories as $category) {
             $menuCat->addChild($category->getName(), ['route' => 'category_show', 'routeParameters' => ['id' => $category->getId()]]);
+        }
+
+        // Utilisation du service security pour tester le rôle
+        if ($this->security->isGranted('ROLE_ADMIN')) {
+            $menu->addChild('menu.admin', ['route' => 'app_app_home']);
+        }
+
+        // menu inscription et connexion
+        $menu->addChild('menu.register', ['route' => 'app_register']);
+        
+        if ($this->security->isGranted('ROLE_USER')) {
+            $menu->addChild('menu.logout', ['route' => 'app_logout']);
+        } else {
+            $menu->addChild('menu.login', ['route' => 'app_login']);
         }
 
         return $menu;
@@ -73,9 +75,10 @@ class Builder
         $menu = $this->factory->createItem('root');
 
         $menu->addChild('menu.beers', ['route' => 'app_beer_index']);
-        $menu->addChild('menu.categories', ['route' => 'category_index']);
+        $menu->addChild('menu.category', ['route' => 'category_index']);
         $menu->addChild('menu.images', ['route' => 'image_index']);
         $menu->addChild('menu.users', ['route' => 'user_index']);
+        $menu->addChild('menu.logout', ['route' => 'app_logout']);
 
         return $menu;
     }
