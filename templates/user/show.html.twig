@@ -1,0 +1,17 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}User{% endblock %}
+
+{% block body %}
+    <h1>{{ user }}</h1>
+
+   <ul>
+        {% for beer in user.beers %}
+        <li class="list-group-item">
+            <a href="{{ path('app_beer_show', {'id': beer.id}) }}">
+            {{ beer.name }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
