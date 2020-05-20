@@ -53,7 +53,7 @@ class Builder
 
         // Utilisation du service security pour tester le rôle
         if ($this->security->isGranted('ROLE_ADMIN')) {
-            $menu->addChild('menu.admin', ['route' => 'app_app_home']);
+            $menu->addChild('menu.admin', ['route' => 'category_index']);
         }
 
         // menu inscription et connexion
