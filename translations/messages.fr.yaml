@@ -1,0 +1,9 @@
+menu:
+  beers: Bières
+  admin: .icon-cogs Administration
+  login: .icon-sign-in-alt Se connecter
+  logout: .icon-sign-out-alt Se déconnecter
+  category: .icon-tags Catégories
+  images: .icon-images Photos
+  users: .icon-users Utilisateurs
+  register: Inscription

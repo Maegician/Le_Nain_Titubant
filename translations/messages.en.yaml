@@ -1,0 +1,8 @@
+menu:
+  beers: Beers
+  category: .icon-tags Categories
+  login: .icon-sign-in-alt Log in
+  logout: .icon-sign-out-alt Log out
+  images: .icon-images Pictures
+  users: .icon-users Users
+  register: Sign in

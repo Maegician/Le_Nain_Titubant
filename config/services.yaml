@@ -42,7 +42,4 @@ services:
         tags:
             - { name: knp_menu.menu_builder, method: adminMenu, alias: admin }
 
-    app.admin_menu:
-        class: App\Menu\Builder
-        tags:
-            - { name: knp_menu.menu_builder, method: adminMenu, alias: admin }
+    
