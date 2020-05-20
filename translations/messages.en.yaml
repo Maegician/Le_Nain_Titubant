@@ -6,3 +6,4 @@ menu:
   images: .icon-images Pictures
   users: .icon-users Users
   register: .icon-user-plus Sign in
+  admin: .icon-cogs Admin
