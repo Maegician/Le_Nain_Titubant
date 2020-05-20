@@ -4,9 +4,10 @@
 <h1>{{ beer.name }}</h1>
 <article>
     {{ beer.origin }}
-    {{ form_row(form.origin) }}
-    {{ form_row(form.alcohol) }}
-    {{ form_row(form.brewing_type) }}
+    {{ beer.categories }}
+    {{ beer.brewing_type }}
+    {{ beer.alcohol }}
+    {{ beer.image }}
 </article>
 <hr/>
 <form action="{{ path('app_beer_score', {'id' :beer.id}) }}" method="post" id="score-form">
