@@ -1,9 +1,26 @@
-$primary: rgb(159, 87, 201);
+$secondary: #111111;
+$success: #145229;
+$danger: #B81E23;
+$warning: #C8C792;
+$light: #FFF9F1;
+
+// font-family: 'Oswald', sans-serif;
+
+// font-family: 'Roboto', sans-serif;
 
 @import 'common.scss';
 
 
 body {
-    margin-top: 55px;
-    color: blue;
+    margin-top: 150px;
+    color: $secondary;
+    background: url(../../public/img/fond_2.png) $light repeat;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+}
+
+nav {
+    font-family: 'Oswald', sans-serif;
 }
