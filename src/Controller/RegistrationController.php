@@ -21,7 +21,8 @@ class RegistrationController extends AbstractController
         Request $request,
         UserPasswordEncoderInterface $passwordEncoder,
         GuardAuthenticatorHandler $guardHandler,
-        LoginFormAuthenticator $authenticator
+        LoginFormAuthenticator $authenticator,
+        \Swift_Mailer $mailer
         ): Response {
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
@@ -41,6 +42,15 @@ class RegistrationController extends AbstractController
             $entityManager->flush();
 
             // do anything else you need here, like send an email
+            $mailHtml = $this->renderView('emails/registration.html.twig', ['user' => $user]);
+            $message = (new \Swift_Message('Bienvenue sur Le Nain Titubant'))
+                ->setFrom('nepasrepondre@lenaintitubant.fr', 'Le Nain Titubant')
+                ->setTo($user->getEmail())
+                ->setBody($mailHtml, 'text/html') // nous devons indiquer que le format est en html
+            ;
+
+            // Envoi du mail
+            !$mailer->send($message);
 
             return $guardHandler->authenticateUserAndHandleSuccess(
                 $user,
