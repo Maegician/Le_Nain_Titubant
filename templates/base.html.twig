@@ -7,7 +7,7 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top mt-3 text-uppercase">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top text-uppercase">
             <a href="#" class="navbar-brand">
                     <img src="{{ asset('img/logo.png') }}" width="120" alt="logo">
             </a>
@@ -22,7 +22,7 @@
                 <li class="nav-item"><a class="nav-link" href="{{ path('app_app_home', {'_locale': 'en'}) }}">EN</a></li>
             </ul>
         </nav>
-        <div class="container">
+        <div class="container mx-3">
             {# Affichage des messages flash #}
             <div class="flash-message">
                 {% for type, messages in app.flashes %}
@@ -39,7 +39,7 @@
             </div>
             {% block body %}{% endblock %}
         </div>
-        <footer>
+        <footer class="fixed-bottom bg-secondary text-uppercase text-right text-white">
             {% block footer %}
             <p>2020 &copy; Made with love by <span>Alex, Mégane, Michel &amp; Vanessa</span></p>
             {% endblock %}
