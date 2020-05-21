@@ -1,0 +1,7 @@
+beer:
+  result_count: >-
+    {count, plural,
+      =0 {None}
+      one {One result only}
+      other {# results} 
+    }

@@ -1,10 +1,38 @@
 menu:
   beers: .icon-beer Beers
   category: .icon-tags Categories
-  login: .icon-sign-in-alt Log in
-  logout: .icon-sign-out-alt Log out
+  login: .icon-sign-in-alt Log In
+  logout: .icon-sign-out-alt Log Out
   images: .icon-images Pictures
   users: .icon-users Users
-  register: .icon-user-plus Sign in
+  register: .icon-user-plus Sign Up
   admin: .icon-cogs Admin
-  back: Return to homepage
+  back: Back to homepage
+
+beer:
+  add: Add new beer
+  categories: Colour
+  delete: Delete
+  name: Name
+  list: 
+  add.name: Add a new beer
+  user: User
+  alcohol: ABV
+  image: Photo
+  origin: Country
+  brewing_type: Style
+  result: Result
+  beer.image.webPath:
+
+form:
+  name: Name
+  origin: Country
+  alcohol: ABV
+  brewing_type: Style
+  category: Colour
+  image: Photo
+  save: Save
+  
+
+image:
+  file: File
