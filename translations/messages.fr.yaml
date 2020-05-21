@@ -1,10 +1,47 @@
 menu:
   beers: .icon-beer Bières
   admin: .icon-cogs Administration
-  login: .icon-sign-in-alt Se connecter
-  logout: .icon-sign-out-alt Se déconnecter
+  login: .icon-sign-in-alt Connexion
+  logout: .icon-sign-out-alt Déconnexion
   category: .icon-tags Catégories
   images: .icon-images Photos
   users: .icon-users Utilisateurs
   register: .icon-user-plus Inscription
   back: Retour à la page d'accueil
+
+beer:
+  add:
+  category: Couleur
+  delete: Supprimer
+  name: Nom 
+  list:
+  add.name: Nouvel ajout
+  user: Utilisateur
+  alcohol: Degré
+  image: Photo
+  origin: Pays
+  brewing_type: Style
+  result: Résultat
+  id: ID
+  beer.image.webPath:
+   
+
+form:
+  name: Nom
+  origin: Pays
+  alcohol: Degré
+  brewing_type: Style
+  category: Couleur
+  image: Photo
+  save: Sauvegarder
+
+image:
+  file: Fichier
+
+actions: Action
+
+
+ 
+
+
+  
