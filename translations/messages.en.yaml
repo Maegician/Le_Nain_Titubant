@@ -11,7 +11,7 @@ menu:
 
 beer:
   add: Add new beer
-  categories: Colour
+  category: Colour
   delete: Delete
   name: Name
   list: 
