@@ -13,6 +13,7 @@ $light: #FFF9F1;
 
 body {
     margin-top: 150px;
+    margin-bottom:300px;
     color: $secondary;
     background: url(../../public/img/fond_2.png) $light repeat;
 }
@@ -41,9 +42,9 @@ h1:before {
     top: +.5rem;
   }
 
-
-//Début footer
-
+///////////////////////////////////////
+//DEBUT FOOTER
+///////////////////////////////////////
 .fab{
     font-size: 1.5rem;
     transition: 300ms cubic-bezier(0.2, 1, 0.2, 1);
@@ -107,7 +108,7 @@ background: url(../../public/img/ardoise_motif.jpg) center center;
 -webkit-box-shadow: inset -38px 0px 38px -4px rgba(0,0,0,0.75);
 -moz-box-shadow: inset -38px 0px 38px -4px rgba(0,0,0,0.75);
 box-shadow: inset -38px 0px 38px -4px rgba(0,0,0,0.75);
-transform: skew(0deg, 4deg);
+transform: skew(0deg, 2.5deg);
 }
 
 #avertissement:after {
@@ -122,7 +123,8 @@ background: url(../../public/img/ardoise_motif.jpg) center center;
 -webkit-box-shadow: inset 38px 0px 38px -4px rgba(0,0,0,0.75);
 -moz-box-shadow: inset 38px 0px 38px -4px rgba(0,0,0,0.75);
 box-shadow: inset 38px 0px 38px -4px rgba(0,0,0,0.75);
-transform: skew(0deg, -4deg);
+transform: skew(0deg, -2.5deg);
 }
-
-//Fin footer
+///////////////////////////////////////
+//FIN FOOTER
+///////////////////////////////////////
