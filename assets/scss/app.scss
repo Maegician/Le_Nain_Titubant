@@ -35,6 +35,57 @@ h1:before {
     background-image:url(../../public/img/noun_Beer_3345093.png);
     background-size: 100% 100%;
     display: inline-block;
-    height: 30px;
-    width: 30px;
+    height: 2.5rem;
+    width: 2.5rem;
+    position: relative;
+    top: +.5rem;
   }
+
+
+// Footer
+.fab{
+    font-size: 1.5rem;
+    transition: 300ms cubic-bezier(0.2, 1, 0.2, 1);
+}
+
+.fa-facebook:hover{
+    font-size: 1.6rem;
+    color:#3b5998;
+}
+
+.fa-twitter:hover{
+    font-size: 1.6rem;
+    color:#00acee;
+}
+
+.fa-instagram:hover{
+    font-size: 1.6rem;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    background-clip: text;
+    color: transparent;
+}
+
+.copyright{
+    font-size: .9rem;
+}
+
+p .love{
+    display: inline-block;
+    position: relative;
+}
+
+p .love::before{
+    content: "";
+    width: 100%;
+    display: block;
+    position: absolute;
+    bottom: 5%;
+    height: 10%;
+    background: $danger;
+    z-index: -1;
+    transition: height 300ms cubic-bezier(0.2, 1, 0.2, 1);
+}
+
+p .love:hover::before{
+    height: 90%;
+}
