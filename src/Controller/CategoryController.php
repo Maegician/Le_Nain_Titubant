@@ -13,7 +13,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
  * @Route("/category")
- * @Security("is_granted('ROLE_ADMIN')")
  */
 class CategoryController extends AbstractController
 {
@@ -29,6 +28,7 @@ class CategoryController extends AbstractController
 
     /**
      * @Route("/add", name="category_add", methods={"GET","POST"})
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function new(Request $request): Response
     {
@@ -65,6 +65,7 @@ class CategoryController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="category_edit", methods={"GET","POST"})
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function edit(Request $request, Category $category): Response
     {
@@ -85,6 +86,7 @@ class CategoryController extends AbstractController
 
     /**
      * @Route("/{id}", name="category_delete", methods={"DELETE"})
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function delete(Request $request, Category $category): Response
     {
