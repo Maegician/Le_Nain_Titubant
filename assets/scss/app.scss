@@ -70,25 +70,29 @@ h1:before {
     font-size: .9rem;
 }
 
-p .love{
+footer a{
     display: inline-block;
     position: relative;
 }
 
-p .love::before{
+footer a::before{
     content: "";
     width: 100%;
     display: block;
     position: absolute;
-    bottom: 5%;
-    height: 10%;
+    bottom: 20%;
+    height: 20%;
     background: $danger;
     z-index: -1;
     transition: height 300ms cubic-bezier(0.2, 1, 0.2, 1);
 }
 
-p .love:hover::before{
+footer a:hover::before{
     height: 90%;
+}
+
+#avertissement p{
+    border-bottom: 1px solid $danger;
 }
 
 #avertissement:before {
