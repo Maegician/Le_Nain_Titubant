@@ -53,15 +53,14 @@ class Builder
 
         // Utilisation du service security pour tester le rôle
         if ($this->security->isGranted('ROLE_ADMIN')) {
-            $menu->addChild('menu.admin', ['route' => 'app_beer_index']);
+            $menu->addChild('menu.admin', ['route' => 'app_beer_admin']);
         }
-
-        // menu inscription et connexion
-        $menu->addChild('menu.register', ['route' => 'app_register']);
         
         if ($this->security->isGranted('ROLE_USER')) {
             $menu->addChild('menu.logout', ['route' => 'app_logout']);
         } else {
+            // menu inscription et connexion
+            $menu->addChild('menu.register', ['route' => 'app_register']);
             $menu->addChild('menu.login', ['route' => 'app_login']);
         }
 
@@ -74,7 +73,7 @@ class Builder
         // racine
         $menu = $this->factory->createItem('root');
 
-        $menu->addChild('menu.beers', ['route' => 'app_beer_index']);
+        $menu->addChild('menu.beers', ['route' => 'app_beer_admin']);
         $menu->addChild('menu.category', ['route' => 'category_index']);
         $menu->addChild('menu.images', ['route' => 'image_index']);
         $menu->addChild('menu.users', ['route' => 'user_index']);

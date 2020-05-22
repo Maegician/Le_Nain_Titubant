@@ -21,6 +21,11 @@ class Category
      */
     private $name;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Beer", mappedBy="category")
+     */
+    private $beers;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -41,5 +46,25 @@ class Category
     public function __toString()
     {
         return $this->name;
+    }
+
+    /**
+     * Get the value of beers
+     */ 
+    public function getBeers()
+    {
+        return $this->beers;
+    }
+
+    /**
+     * Set the value of beers
+     *
+     * @return  self
+     */ 
+    public function setBeers($beers)
+    {
+        $this->beers = $beers;
+
+        return $this;
     }
 }

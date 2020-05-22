@@ -16,12 +16,12 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
  * @Route("/beer")
- * @Security("is_granted('ROLE_ADMIN')")
  */
 class BeerController extends AbstractController
 {
     /**
      * @Route("/add")
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function add(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -78,7 +78,26 @@ class BeerController extends AbstractController
     }
 
     /**
+     * @route("/admin/{page}", requirements = {"page" : "\d+"}, defaults = {"page" : 1})
+     * @Security("is_granted('ROLE_ADMIN')")
+     */
+    public function admin(Request $request, BeerRepository $repository, $page = 1): Response
+    {
+        $search = $request->get('search', '');
+        $countPerPage = 30;
+        if (empty($search)) {
+            $beers = $repository->findAll($page, $countPerPage);
+        } else {
+            $beers = $repository->findBySearch($search, $page, $countPerPage);
+        }
+        // Calcul du nombre de page
+        $nbPages = ($beers->count() / $countPerPage);
+        return $this->render('beer/admin.html.twig', ['beers' => $beers, 'nbPages' => $nbPages, 'page' => $page]);
+    }
+
+    /**
      * @Route("/{id}/edit", requirements = {"id": "\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function edit(Request $request, EntityManagerInterface $entityManager, Beer $beer): Response
     {
@@ -95,6 +114,7 @@ class BeerController extends AbstractController
 
     /**
      * @Route("/{id}/delete", requirements = {"id": "\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function delete(Request $request, EntityManagerInterface $entityManager, Beer $beer): Response
     {

@@ -43,7 +43,7 @@ class User implements UserInterface
     private $password;    
 
     /**
-     * @ORM\OneToMany(targetEntity=Beer::class, mappedBy="userId")
+     * @ORM\OneToMany(targetEntity=Beer::class, mappedBy="user")
      */
     private $beers;
 
