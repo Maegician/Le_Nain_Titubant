@@ -29,7 +29,8 @@ services:
     #Défini le service Menu\Builder dans un tag 'knp_menu.menu_builder'
     App\Menu\Builder:
        tags:
-           - { name: knp_menu.menu_builder, method: mainMenu, alias: main }
+           - { name: knp_menu.menu_builder, method: mainMenu_left, alias: main_left }
+           - { name: knp_menu.menu_builder, method: mainMenu_right, alias: main_right }
            - { name: knp_menu.menu_builder, method: adminMenu, alias: admin }
 
     # app.main_menu:

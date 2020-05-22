@@ -25,7 +25,8 @@ class Builder
     /**
      * Génère le menu principal
      */
-    public function mainMenu(array $options)
+    // menu gauche
+    public function mainMenu_left(array $options)
     {
         // Créer une racine
         $menu = $this->factory->createItem('root');
@@ -50,6 +51,15 @@ class Builder
         foreach ($categories as $category) {
             $menuCat->addChild($category->getName(), ['route' => 'category_show', 'routeParameters' => ['id' => $category->getId()]]);
         }
+
+        return $menu;
+    }
+
+    // menu droite
+    public function mainMenu_right(array $options)
+    {
+        // Créer une racine
+        $menu = $this->factory->createItem('root');
 
         // Utilisation du service security pour tester le rôle
         if ($this->security->isGranted('ROLE_ADMIN')) {
