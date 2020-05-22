@@ -45,11 +45,24 @@
             </div>
             {% block body %}{% endblock %}
         </div>
-        <footer class="fixed-bottom bg-secondary text-right text-white pt-2 pr-5">
+        <footer class="fixed-bottom bg-secondary text-center text-white py-2 px-2">
             {% block footer %}
-            <p>Pour votre santé, mangez au moins 5 fruits et légumes par jour, www.mangerbouger.fr</br>
-            L'abus d'alcool est dangereux pour la santé, sachez consommer avec modération. </p>
-            <p class="text-uppercase">2020 &copy; Made with love by <span>Alex, Mégane, Michel &amp; Vanessa</span></p>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-4">
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <p>Pour votre santé, mangez au moins 5 fruits et légumes par jour, www.mangerbouger.fr</br>
+                        L'abus d'alcool est dangereux pour la santé, sachez consommer avec modération. </p>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <p class="text-uppercase">2020 &copy; Made with love by <span>Alex, Mégane, Michel &amp; Vanessa</span></p>
+                    </div>
+                </div>
+            </div>
             {% endblock %}
         </footer>
         
