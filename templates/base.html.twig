@@ -9,7 +9,7 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top text-uppercase">
             <div class="container">
-                <a href="#" class="navbar-brand mx-auto">
+                <a href="{{ path('app_app_home')}}" class="navbar-brand mx-auto">
                         <img src="{{ asset('img/logo.png') }}" width="120" alt="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,17 +49,19 @@
             {% block footer %}
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-md-4">
+                    <div class="col-12 col-md-6">
                         <i class="fab fa-facebook mx-1"></i>
                         <i class="fab fa-twitter mx-1"></i>
                         <i class="fab fa-instagram mx-1"></i>
                     </div>
-                    <div class="col-12 col-md-4">
+                    <div class="col-12 col-md-6 mt-md-3">
+                        <p class="text-uppercase copyright">2020 &copy; Made with love by <span class="love">Alex, Mégane, Michel &amp; Vanessa</span></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
                         <p>Pour votre santé, mangez au moins 5 fruits et légumes par jour, www.mangerbouger.fr</br>
                         L'abus d'alcool est dangereux pour la santé, sachez consommer avec modération. </p>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <p class="text-uppercase copyright">2020 &copy; Made with love by <span class="love">Alex, Mégane, Michel &amp; Vanessa</span></p>
                     </div>
                 </div>
             </div>
