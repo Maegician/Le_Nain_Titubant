@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=App\Repository\BeerRepository::class)
@@ -59,6 +60,14 @@ class Beer
      * @ORM\JoinColumn(nullable=false)
      */
     private $image;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="text")
+     * @Assert\NotBlank
+     */
+    private $description;
 
     public function __construct()
     {
@@ -173,6 +182,30 @@ class Beer
     public function setImage(image $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of description
+     *
+     * @return  string
+     */ 
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set the value of description
+     *
+     * @param  string  $description
+     *
+     * @return  self
+     */ 
+    public function setDescription(string $description)
+    {
+        $this->description = $description;
 
         return $this;
     }

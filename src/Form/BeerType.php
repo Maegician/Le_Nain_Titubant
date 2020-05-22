@@ -12,6 +12,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 
 class BeerType extends AbstractType
@@ -24,7 +25,8 @@ class BeerType extends AbstractType
             ->add('origin')
             ->add('alcohol')
             ->add('brewing_type')
-
+            ->add('description')
+            // ->add('description', TextareaType::class, ['label' => 'beer.description', 'attr' => ['class' => 'wysiwyg']])
 
             ->add('image', ImageType::class, ['label' => false])
             
