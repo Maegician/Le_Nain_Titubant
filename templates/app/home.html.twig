@@ -1,4 +1,23 @@
 {% extends 'base.html.twig' %}
 
+
 {% block body %}
+<div class="row text-center">
+    <div class="col-12">
+        <h1>Le Nain Titubant</h1>
+        </br>
+        <div>
+            <p>Le guide Michelin de la bière, et à la vôtre! </br></br>Vous retrouverez dans notre taverne des avis et descriptions d'un grand nombre de bières, avec des sélections régulières.</br></br></p>
+        </div>
+    </div>
+    <div class="col-6">
+        <a href="{{ path('app_beer_index')}}" class="btn btn-success"> BOIRE</a>
+        <p><i class="fas fa-beer fa-4x"></i></p>
+         
+    </div>
+    <div class="col-6">
+        <a href="https://www.preventionroutiere.asso.fr/2016/03/31/alcool-risque-et-facteur-daccident/" class="btn btn-success">CONDUIRE</a>
+        <p><i class="fas fa-car fa-6x"></i></p>
+    </div>
+</div>
 {% endblock body %}
