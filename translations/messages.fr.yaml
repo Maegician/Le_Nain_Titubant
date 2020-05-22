@@ -14,7 +14,7 @@ beer:
   category: Couleur
   delete: Supprimer
   name: Nom 
-  list:
+  list: Liste des bières
   add.name: Nouvel ajout
   user: Utilisateur
   alcohol: Degré
@@ -39,6 +39,13 @@ image:
   file: Fichier
 
 actions: Action
+
+registrationForm:
+  username: Nom d'utilisateur
+  email: Email
+  plainPassword: Mot de passe
+  agreeTerms:
+
 
 
  
