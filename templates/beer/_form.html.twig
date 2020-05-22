@@ -7,6 +7,7 @@
         {{ form_row(form.alcohol) }}
         {{ form_row(form.brewing_type) }}
         {{ form_row(form.category) }}
+        {{ form_row(form.description) }}
         <div class="media mb-3">
             {% if beer is defined and beer.image is not empty %}
             {# asset permet de pointer sur le dossier 'public', twig appelle la méthode 'getWebPath' de l'image #}

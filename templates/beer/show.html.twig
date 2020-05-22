@@ -21,18 +21,7 @@
     </div>
 
     <div class="col-8 mt-5 text-justify">
-        <p>
-            La Maredsous Triple est une bière blonde d’abbaye brassée en Belgique en fermentation haute. Elle est refermentée naturellement en bouteille avec une maturation de 2 mois.
-
-            Cette bière triple belge forte vous séduira avec son éclat festif, sa saveur corsée et légèrement épicée. Sa douceur élégante contraste avec sa teneur en alcool de 10% et fait d’elle une bière ambrée forte et capiteuse qui fera le bonheur des initiés.
-
-            Testez la Maredsous, la bière belge favorite des connaisseurs :
-            Robe : ambrée tirant vers l’orange épaisse mousse blanche
-            Nez : arômes de malt, caramel, raisin et fruits secs
-            Goût : saveurs de caramel, d’épices, de fruits et de bois
-            Amertume : légère et équilibrée
-            A déguster de préférence entre 6 et 10°c
-        </p>
+        <p>{{ 'beer.description'|trans }} : {{ beer.description }}</p>
     </div>
 </div>
 {# <form action="{{ path('app_beer_score', {'id' :beer.id}) }}" method="post" id="score-form">
