@@ -14,7 +14,7 @@ beer:
   category: Colour
   delete: Delete
   name: Name
-  list: 
+  list: Beer List
   add.name: Add a new beer
   user: User
   alcohol: ABV
@@ -22,7 +22,7 @@ beer:
   origin: Country
   brewing_type: Style
   result: Result
-  beer.image.webPath:
+  beer.image.webPath: Link
 
 form:
   name: Name
@@ -33,6 +33,11 @@ form:
   image: Photo
   save: Save
   
-
 image:
   file: File
+
+registrationForm:
+  username:
+  email:  
+  plainPassword:
+  agreeTerms:
