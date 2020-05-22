@@ -127,4 +127,12 @@ transform: skew(0deg, -2.5deg);
 }
 ///////////////////////////////////////
 //FIN FOOTER
-///////////////////////////////////////
+/////////////////////////////////////// 
+
+
+// home.html.twig
+.bghome{
+    margin-top: 200px;
+    background: url(../../public/img/fond_1.png) $light;
+    height: 560px;
+}
