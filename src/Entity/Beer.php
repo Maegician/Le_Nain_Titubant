@@ -38,7 +38,7 @@ class Beer
     private $brewingType;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Category::class)
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="beers")
      * @ORM\JoinColumn(nullable=false)
      */
     private $category;

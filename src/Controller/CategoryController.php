@@ -55,6 +55,9 @@ class CategoryController extends AbstractController
      */
     public function show(Category $category): Response
     {
+        // TO DO: Optimiser la requête
+
+        // $category = categoryRepository=>findOneById($id) 
         return $this->render('category/show.html.twig', [
             'category' => $category,
         ]);
