@@ -24,3 +24,17 @@ p {
 nav {
     font-family: 'Oswald', sans-serif;
 }
+
+.btn {
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+}
+
+h1:before {
+    content: "";
+    background-image:url(../../public/img/noun_Beer_3345093.png);
+    background-size: 100% 100%;
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+  }
