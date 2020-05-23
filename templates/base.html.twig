@@ -10,7 +10,7 @@
     <body>
         <ul class="language text-center">
             <li class="nav-item">
-                <a class="nav-link text-white" href="{{ path('app_app_home', {'_locale': 'fr'}) }}">FR</a>
+                <a class="nav-link text-white border-bottom" href="{{ path('app_app_home', {'_locale': 'fr'}) }}">FR</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white" href="{{ path('app_app_home', {'_locale': 'en'}) }}">EN</a>
@@ -21,7 +21,7 @@
             <span class="navbar-toggler-icon"></span>
             </button>
             <ul class="navbar-nav collapse navbar-collapse justify-content-center align-items-start text-center" id="main-menu">
-                <li class="menu_left justify-content-center border-bottom border-danger">
+                <li class="menu_left justify-content-end border-bottom border-danger">
                     {{ knp_menu_render('main_left', {'style': 'horizontal'}) }} 
                 </li>
                 <li class="mx-5">
@@ -32,7 +32,7 @@
                         <i class="fas fa-home text-danger"></i>
                     </a>
                 </li>
-                <li class="menu_right justify-content-center border-bottom border-danger">
+                <li class="menu_right justify-content-start border-bottom border-danger">
                     {{ knp_menu_render('main_right', {'style': 'horizontal'}) }} 
                 </li>
             </ul>
