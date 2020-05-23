@@ -56,7 +56,7 @@ nav {
     z-index: -1;
     top: -30px;
     left: 0;
-    height: 100%;
+    height: 75%;
     width: 50.1%;
     background: url(../../public/img/ardoise_motif.jpg) center center;
     -webkit-box-shadow: inset -38px 0px 38px -4px rgba(0,0,0,0.75);
@@ -71,7 +71,7 @@ nav {
     z-index: -1;
     top: -30px;
     right: 0;
-    height: 100%;
+    height: 75%;
     width: 50.1%;
     background: url(../../public/img/ardoise_motif.jpg) center center;
     -webkit-box-shadow: inset 38px 0px 38px -4px rgba(0,0,0,0.75);
@@ -83,21 +83,64 @@ nav {
 .menu_right, .menu_left{
     flex:2;
     display: flex;
-    justify-content: center;
 }
 
 .navbar-brand{
     flex:1;
     transition:300ms ease-in-out;
+    display: none;
 }
 
-li.mx-5:hover .navbar-brand{
-    transform: translateY(-300px);
+.fa-home{
+    position: absolute;
+    right: 49%;
+    top:-300px;
+    font-size: 2rem;
+    transition:300ms ease-in-out;
+}
+
+@media (min-width : 768px) {
+    li.mx-5:hover .fa-home{
+        transform: translateY(330px);
+    }
+
+    li.mx-5:hover .navbar-brand{
+        transform: translateY(-300px);
+    }
+
+    .navbar-brand{
+        display:flex;
+    }
 }
 
 .language{
-    display: none;
+    background-color:$danger;
+    border-radius: 50%;
+    position: fixed;
+    top: 10px;
+    width: 100px;
+    right: 20px;
+    z-index:1031;
+    padding: 10px;
+    transform: rotate(15deg);
+    -webkit-box-shadow: 10px 10px 28px -8px rgba(33,33,33,1);
+    -moz-box-shadow: 10px 10px 28px -8px rgba(33,33,33,1);
+    box-shadow: 10px 10px 28px -8px rgba(33,33,33,1);
+    text-decoration: none;
+    list-style-type: none;
+    transition: 300ms;
 }
+
+.language:hover{
+    background-color:rgb(187, 51, 56);
+}
+
+@media (max-width : 768px) {
+    .language{
+        z-index: 1029;
+    }
+}
+
 ///////////////////////////////////////
 //FIN MENU
 ///////////////////////////////////////
@@ -171,10 +214,6 @@ footer a{
     height: 90%;
 }
 
-#avertissement p{
-    border-bottom: 1px solid $danger;
-}
-
 #deco{
     position: relative;
 }
@@ -215,7 +254,6 @@ footer a{
 
 // home.html.twig
 .bghome{
-    margin-top: 200px;
     background: url(../../public/img/fond_1.png) $light;
     height: 560px;
     background-color: red;
