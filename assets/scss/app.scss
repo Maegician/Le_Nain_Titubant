@@ -17,13 +17,15 @@ body {
     background: url(../../public/img/fond_2.png) $light repeat;
 }
 
+main{
+    min-height:calc(100vh - 348px);
+}
+
+
 p {
     font-family: 'Roboto', sans-serif;
 }
 
-nav {
-    font-family: 'Oswald', sans-serif;
-}
 
 .btn {
     text-transform: uppercase;
@@ -44,6 +46,10 @@ h1:before {
 ///////////////////////////////////////
 //DEBUT MENU
 ///////////////////////////////////////
+nav {
+    font-family: 'Oswald', sans-serif;
+}
+
 nav:before {
     content: '';
     position: absolute;
