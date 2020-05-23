@@ -63,17 +63,17 @@ class BeerController extends AbstractController
     /**
      * @route("/index/{page}", requirements = {"page" : "\d+"}, defaults = {"page" : 1})
      */
-    public function index(Request $request, BeerRepository $repository, $page = 1): Response
+    public function index(Request $request, BeerRepository $repository, int $page): Response
     {
         $search = $request->get('search', '');
-        $countPerPage = 30;
+        $countPerPage = 9;
         if (empty($search)) {
             $beers = $repository->findAll($page, $countPerPage);
         } else {
             $beers = $repository->findBySearch($search, $page, $countPerPage);
         }
         // Calcul du nombre de page
-        $nbPages = ($beers->count() / $countPerPage);
+        $nbPages = ceil($beers->count() / $countPerPage);
         return $this->render('beer/index.html.twig', ['beers' => $beers, 'nbPages' => $nbPages, 'page' => $page]);
     }
 
