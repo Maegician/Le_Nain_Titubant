@@ -79,6 +79,25 @@ nav:after {
     box-shadow: inset 38px 0px 38px -4px rgba(0,0,0,0.75);
     transform: skew(0deg, -2deg);
 }
+
+.menu_right, .menu_left{
+    flex:2;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-brand{
+    flex:1;
+    transition:300ms ease-in-out;
+}
+
+li.mx-5:hover .navbar-brand{
+    transform: translateY(-300px);
+}
+
+.language{
+    display: none;
+}
 ///////////////////////////////////////
 //FIN MENU
 ///////////////////////////////////////
