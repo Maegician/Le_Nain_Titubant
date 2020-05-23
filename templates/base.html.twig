@@ -7,34 +7,36 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+        <ul class="language text-center">
+            <li class="nav-item">
+                <a class="nav-link text-white" href="{{ path('app_app_home', {'_locale': 'fr'}) }}">FR</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="{{ path('app_app_home', {'_locale': 'en'}) }}">EN</a>
+            </li>
+        </ul>
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top text-uppercase">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
-            <ul class="navbar-nav collapse navbar-collapse justify-content-center text-center" id="main-menu">
-                <li class="menu_left">
+            <ul class="navbar-nav collapse navbar-collapse justify-content-center align-items-start text-center" id="main-menu">
+                <li class="menu_left justify-content-center border-bottom border-danger">
                     {{ knp_menu_render('main_left', {'style': 'horizontal'}) }} 
                 </li>
                 <li class="mx-5">
                     <a href="{{ path('app_app_home')}}" class="navbar-brand">
                         <img src="{{ asset('img/logo.png') }}" width="120" alt="logo">
+                    </a>
+                    <a href="{{ path('app_app_home')}}" >
                         <i class="fas fa-home text-danger"></i>
                     </a>
                 </li>
-                <li class="menu_right">
+                <li class="menu_right justify-content-center border-bottom border-danger">
                     {{ knp_menu_render('main_right', {'style': 'horizontal'}) }} 
                 </li>
             </ul>
-            <ul class="language">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('app_app_home', {'_locale': 'fr'}) }}">FR</a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="{{ path('app_app_home', {'_locale': 'en'}) }}">EN</a>
-                </li>
-            </ul>
         </nav>
-        
+
         <div class="container">
             {# Affichage des messages flash #}
             <div class="flash-message">
@@ -59,7 +61,7 @@
         <footer class="footer bg-secondary text-center text-white mt-5 pt-2 mb-0">
             <div id="deco"></div>
             <div id="avertissement" class="container">
-                <p>Pour votre santé, mangez au moins 5 fruits et légumes par jour, <a class="text-decoration-none text-white" href="https://www.mangerbouger.fr/">www.mangerbouger.fr</a>.</br>
+                <p class="border-bottom border-danger">Pour votre santé, mangez au moins 5 fruits et légumes par jour, <a class="text-decoration-none text-white" href="https://www.mangerbouger.fr/">www.mangerbouger.fr</a>.</br>
                 L'abus d'alcool est dangereux pour la santé, sachez consommer avec modération. </p>
             </div>
             <div class="container">
