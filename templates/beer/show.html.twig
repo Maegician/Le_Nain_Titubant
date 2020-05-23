@@ -1,27 +1,29 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<div class="container">
     <div class="row">
 
-    <div class="col-3 mr-5 mt-5 text-center">
-    
-        <div class="card" style="width: 18rem;">
-            <img src="{{ asset(beer.image.webPath) }}" class="card-img-top" alt="{{ beer.name }}">
-        <div class="card-body">
-            <h5 class="card-title">{{ beer.name }}</h5>
-        </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">{{ 'beer.origin'|trans }} : {{ beer.origin }}</li>
-                <li class="list-group-item">{{ 'beer.category'|trans }} : {{ beer.category }}</li>
-                <li class="list-group-item">{{ 'beer.brewing_type'|trans }} : {{ beer.brewingType }}</li>
-                <li class="list-group-item">{{ 'beer.alcohol'|trans }} : {{ beer.alcohol }}°</li>
-            </ul>
+        <div class="col-3 mr-5 mt-5 text-center">
+        
+            <div class="card" style="width: 18rem;">
+                <img src="{{ asset(beer.image.webPath) }}" class="card-img-top" alt="{{ beer.name }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ beer.name }}</h5>
+            </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{ 'beer.origin'|trans }} : {{ beer.origin }}</li>
+                    <li class="list-group-item">{{ 'beer.category'|trans }} : {{ beer.category }}</li>
+                    <li class="list-group-item">{{ 'beer.brewing_type'|trans }} : {{ beer.brewingType }}</li>
+                    <li class="list-group-item">{{ 'beer.alcohol'|trans }} : {{ beer.alcohol }}°</li>
+                </ul>
+            </div>
+
         </div>
 
-    </div>
-
-    <div class="col-8 mt-5 text-justify">
-        <p>{{ 'beer.description'|trans }} : {{ beer.description }}</p>
+        <div class="col-8 mt-5 text-justify">
+            <p>{{ 'beer.description'|trans }} : {{ beer.description }}</p>
+        </div>
     </div>
 </div>
 {# <form action="{{ path('app_beer_score', {'id' :beer.id}) }}" method="post" id="score-form">
