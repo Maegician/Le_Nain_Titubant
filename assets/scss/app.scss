@@ -148,7 +148,66 @@ nav {
 //FIN MENU
 ///////////////////////////////////////
 
+///////////////////////////////////////
+//DEBUT CARD
+///////////////////////////////////////
 
+.card {
+    -webkit-box-shadow: 10px 10px 10px 0px rgba(107,107,107,1);
+    -moz-box-shadow: 10px 10px 10px 0px rgba(107,107,107,1);
+    box-shadow: 10px 10px 10px 0px rgba(107,107,107,1);
+    border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border: 3px solid #BDB76B;
+}
+
+.card li {
+    background: rgba(255,255,255,1);
+    background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(240,229,217,1) 50%, rgba(255,255,255,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(50%, rgba(240,229,217,1)), color-stop(100%, rgba(255,255,255,1)));
+    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(240,229,217,1) 50%, rgba(255,255,255,1) 100%);
+    background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(240,229,217,1) 50%, rgba(255,255,255,1) 100%);
+    background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(240,229,217,1) 50%, rgba(255,255,255,1) 100%);
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(240,229,217,1) 50%, rgba(255,255,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0 );
+}
+
+///////////////////////////////////////
+//FIN CARD
+///////////////////////////////////////
+
+///////////////////////////////////////
+//DEBUT PAGINATION
+///////////////////////////////////////
+
+#pagination {
+    margin-right: 10px;
+    -webkit-box-shadow: 10px 10px 10px 0px rgba(107,107,107,1);
+    -moz-box-shadow: 10px 10px 10px 0px rgba(107,107,107,1);
+    box-shadow: 10px 10px 10px 0px rgba(107,107,107,1);
+    border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border: 3px solid #BDB76B;
+}
+
+.page-item.active .page-link,
+a#pagination.page-link:hover,
+a#pagination.page-link:focus {
+    background-color: #f0e5d9;
+    color: #BDB76B;
+
+}
+
+a#pagination.page-link {
+    color: black;
+    transition: 300;
+}
+
+///////////////////////////////////////
+//FIN PAGINATION
+///////////////////////////////////////
 
 ///////////////////////////////////////
 //DEBUT FOOTER
