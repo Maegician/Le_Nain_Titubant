@@ -13,18 +13,19 @@ $light: #FFF9F1;
 
 body {
     margin-top: 150px;
-    margin-bottom:300px;
     color: $secondary;
     background: url(../../public/img/fond_2.png) $light repeat;
 }
+
+main{
+    min-height:calc(100vh - 348px);
+}
+
 
 p {
     font-family: 'Roboto', sans-serif;
 }
 
-nav {
-    font-family: 'Oswald', sans-serif;
-}
 
 .btn {
     text-transform: uppercase;
@@ -43,11 +44,70 @@ h1:before {
   }
 
 ///////////////////////////////////////
+//DEBUT MENU
+///////////////////////////////////////
+nav {
+    font-family: 'Oswald', sans-serif;
+}
+
+nav:before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -30px;
+    left: 0;
+    height: 100%;
+    width: 50.1%;
+    background: url(../../public/img/ardoise_motif.jpg) center center;
+    -webkit-box-shadow: inset -38px 0px 38px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset -38px 0px 38px -4px rgba(0,0,0,0.75);
+    box-shadow: inset -38px 0px 38px -4px rgba(0,0,0,0.75);
+    transform: skew(0deg, 2deg);
+    }
+    
+nav:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -30px;
+    right: 0;
+    height: 100%;
+    width: 50.1%;
+    background: url(../../public/img/ardoise_motif.jpg) center center;
+    -webkit-box-shadow: inset 38px 0px 38px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 38px 0px 38px -4px rgba(0,0,0,0.75);
+    box-shadow: inset 38px 0px 38px -4px rgba(0,0,0,0.75);
+    transform: skew(0deg, -2deg);
+}
+///////////////////////////////////////
+//FIN MENU
+///////////////////////////////////////
+
+
+
+///////////////////////////////////////
 //DEBUT FOOTER
 ///////////////////////////////////////
+footer{
+    height: 150px;
+    width: 100%;
+}
+
+@media (max-width : 768px) {
+    footer{
+        height: 300px;
+    }
+}
+
+footer p{
+    position: relative;
+    z-index: 2;
+}
+
 .fab{
     font-size: 1.5rem;
     transition: 300ms cubic-bezier(0.2, 1, 0.2, 1);
+    color: white;
 }
 
 .fa-facebook:hover{
@@ -76,7 +136,7 @@ footer a{
     position: relative;
 }
 
-footer a::before{
+#avertissement a::before{
     content: "";
     width: 100%;
     display: block;
@@ -88,7 +148,7 @@ footer a::before{
     transition: height 300ms cubic-bezier(0.2, 1, 0.2, 1);
 }
 
-footer a:hover::before{
+#avertissement a:hover::before{
     height: 90%;
 }
 
@@ -96,34 +156,38 @@ footer a:hover::before{
     border-bottom: 1px solid $danger;
 }
 
-#avertissement:before {
-content: '';
-position: absolute;
-z-index: -1;
-top: -30px;
-left: 0;
-height: 100%;
-width: 50.1%;
-background: url(../../public/img/ardoise_motif.jpg) center center;
--webkit-box-shadow: inset -38px 0px 38px -4px rgba(0,0,0,0.75);
--moz-box-shadow: inset -38px 0px 38px -4px rgba(0,0,0,0.75);
-box-shadow: inset -38px 0px 38px -4px rgba(0,0,0,0.75);
-transform: skew(0deg, 2.5deg);
+#deco{
+    position: relative;
 }
 
-#avertissement:after {
-content: '';
-position: absolute;
-z-index: -1;
-top: -30px;
-right: 0;
-height: 100%;
-width: 50.1%;
-background: url(../../public/img/ardoise_motif.jpg) center center;
--webkit-box-shadow: inset 38px 0px 38px -4px rgba(0,0,0,0.75);
--moz-box-shadow: inset 38px 0px 38px -4px rgba(0,0,0,0.75);
-box-shadow: inset 38px 0px 38px -4px rgba(0,0,0,0.75);
-transform: skew(0deg, -2.5deg);
+#deco:before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: -30px;
+    left: 0;
+    height: 100px;
+    width: 50.1%;
+    background: url(../../public/img/ardoise_motif.jpg) center center;
+    -webkit-box-shadow: inset -38px 0px 38px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset -38px 0px 38px -4px rgba(0,0,0,0.75);
+    box-shadow: inset -38px 0px 38px -4px rgba(0,0,0,0.75);
+    transform: skew(0deg, 2deg);
+}
+
+#deco:after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: -30px;
+    right: 0;
+    height: 100px;
+    width: 50.1%;
+    background: url(../../public/img/ardoise_motif.jpg) center center;
+    -webkit-box-shadow: inset 38px 0px 38px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 38px 0px 38px -4px rgba(0,0,0,0.75);
+    box-shadow: inset 38px 0px 38px -4px rgba(0,0,0,0.75);
+    transform: skew(0deg, -2deg);
 }
 ///////////////////////////////////////
 //FIN FOOTER
@@ -135,4 +199,5 @@ transform: skew(0deg, -2.5deg);
     margin-top: 200px;
     background: url(../../public/img/fond_1.png) $light;
     height: 560px;
+    background-color: red;
 }
