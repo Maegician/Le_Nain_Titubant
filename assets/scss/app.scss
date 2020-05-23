@@ -50,7 +50,7 @@ nav {
     font-family: 'Oswald', sans-serif;
 }
 
-nav:before {
+.navbar:before {
     content: '';
     position: absolute;
     z-index: -1;
@@ -65,7 +65,7 @@ nav:before {
     transform: skew(0deg, 2deg);
     }
     
-nav:after {
+.navbar:after {
     content: '';
     position: absolute;
     z-index: -1;
