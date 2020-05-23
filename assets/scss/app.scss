@@ -8,6 +8,8 @@ $light: #FFF9F1;
 
 // font-family: 'Roboto', sans-serif;
 
+//font-family: 'Indie Flower', cursive;
+
 @import 'common.scss';
 
 
@@ -32,15 +34,16 @@ p {
     font-family: 'Oswald', sans-serif;
 }
 
-h1:before {
+h1:before, h1:after {
     content: "";
-    background-image:url(../../public/img/noun_Beer_3345093.png);
-    background-size: 100% 100%;
+    background-color: rgb(0, 0, 0);
     display: inline-block;
-    height: 2.5rem;
-    width: 2.5rem;
+    height: .7rem;
+    width: .7rem;
     position: relative;
-    top: +.5rem;
+    top: -.5rem;
+    border-radius: 50%;
+    margin:0px 20px;
   }
 
 ///////////////////////////////////////
@@ -254,7 +257,29 @@ footer a{
 
 // home.html.twig
 .bghome{
-    background: url(../../public/img/fond_1.png) $light;
-    height: 560px;
-    background-color: red;
+    background: url(../../public/img/lined_paper.png) $light repeat;
+    // -webkit-box-shadow: 0px 2px 24px -3px rgba(0,0,0,0.75);
+    // -moz-box-shadow: 0px 2px 24px -3px rgba(0,0,0,0.75);
+    // box-shadow: 0px 2px 24px -3px rgba(0,0,0,0.75);
+    position:relative;
+}
+
+.intro{
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.5rem;
+    padding-left:100px;
+}
+
+.boire-conduire{
+    font-family: 'Oswald', sans-serif;
+}
+
+#beer-home{
+    background: url(../../public/img/beer-1.png) no-repeat left bottom;
+    background-size: 70%;
+    position: absolute;
+    bottom: 0px;
+    width: 300px;
+    height: 280px;
+    z-index: 2;
 }
