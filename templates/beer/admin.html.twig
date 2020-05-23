@@ -34,7 +34,7 @@
                         <img src="{{ asset(beer.image.webPath) }}" style="max-height: 80px"/>
                         {% endif %}
                     </td>
-                    <td>{{ beer.name }}</td>
+                    <td><a href="{{ path('app_beer_show', {'id': beer.id}) }}" class="btn btn-secondary">{{ beer.name }}</a></td>
                     <td><span class="badge badge-secondary m-1">{{ beer.category }}</span></td>
                     <td>{{ beer.origin }}</td>
                     <td>{{ beer.alcohol}}</td>
