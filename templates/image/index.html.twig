@@ -4,9 +4,19 @@
 
 {% block body %}
     <h1>{{'image.index'|trans}}</h1>
+
+{% embed "decorators/_card.html.twig" with {'class': 'my-3'} %}
+    {% block header %}
+    <div class="d-flex justify-content-between">
+        <div>{{ 'beer.result_count'|trans({'count': images|length }) }}</div>
+        <a href="{{ path('image_add')}}" class="btn btn-success"><i class="fas fa-plus"></i> {{ 'image.add.name'|trans }}</a>
+    </div>
+    {% endblock %}
+
+    {% block table %}
     <div class="table-responsive" id="catg">
         <table class="table">
-            <thead>
+            <thead class="thead-dark">
                 <tr>
                     <th>{{'image.id'|trans}}</th>
                     <th>{{'image.name'|trans}}</th>
@@ -21,8 +31,8 @@
                     <td>{{ image.name }}</td>
                     <td>{{ image.path }}</td>
                     <td>
-                        <a href="{{ path('image_show', {'id': image.id}) }}">voir</a>
-                        <a href="{{ path('image_edit', {'id': image.id}) }}">modifier</a>
+                        <a href="{{ path('image_edit', {'id': image.id}) }}" class="btn btn-secondary"><i class="fas fa-edit"></i></a>
+                        <a href="{{ path('image_delete', {'id': image.id}) }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
             {% else %}
@@ -32,6 +42,9 @@
             {% endfor %}
             </tbody>
         </table>
-        <a href="{{ path('image_add') }}">{{'image.add'|trans}}</a>
     </div>
+    {% endblock %}
+
+    {% endembed %}
+
 {% endblock %}

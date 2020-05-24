@@ -3,33 +3,46 @@
 {% block title %}{{'category.list'|trans}}{% endblock %}
 
 {% block body %}
-    <h1>{{'category.list'|trans}}</h1>
-    <div class="table-responsive" id="catg">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>{{'category.id'|trans}}</th>
-                    <th>{{'category.name'|trans}}</th>
-                    <th>{{'actions'|trans}}</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for category in categories %}
-                <tr>
-                    <td>{{ category.id }}</td>
-                    <td>{{ category.name }}</td>
-                    <td>
-                        <a href="{{ path('category_show', {'id': category.id}) }}">{{'show'|trans}}</a>
-                        <a href="{{ path('category_edit', {'id': category.id}) }}">{{'edit'|trans}}</a>
-                    </td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="3">{{'no.records.found'|trans}}</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-        <a href="{{ path('category_add') }}">{{'category.add'|trans}}</a>
-    </div>
+<h1>{{ 'category.list'|trans }}</h1>
+
+{% embed "decorators/_card.html.twig" with {'class': 'my-3'} %}
+    {% block header %}
+        <div class="d-flex justify-content-between">
+            <div>{{ 'category.result_count'|trans({'count': categories|length }) }}</div>
+            <a href="{{ path('category_add')}}" class="btn btn-success"><i class="fas fa-plus"></i> {{ 'category.add.name'|trans }}</a>
+        </div>
+        {% endblock %}
+
+        {% block table %}
+        <div class="table-responsive" id="catg">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>{{'category.id'|trans}}</th>
+                        <th>{{'category.name'|trans}}</th>
+                        <th>{{'actions'|trans}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for category in categories %}
+                    <tr>
+                        <td>{{ category.id }}</td>
+                        <td><a href="{{ path('category_show', {'id': category.id}) }}" class="btn btn-secondary">{{ category.name }}</a></td>
+                        <td>
+                            <a href="{{ path('category_edit', {'id': category.id}) }}" class="btn btn-secondary"><i class="fas fa-edit"></i></a>
+                            <a href="{{ path('category_delete', {'id': category.id}) }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="3">{{'no.records.found'|trans}}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endblock %}
+
+        {% endembed %}
+
 {% endblock %}

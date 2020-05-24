@@ -5,11 +5,13 @@ namespace App\Controller;
 use App\Entity\Image;
 use App\Form\ImageType;
 use App\Repository\ImageRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 /**
  * @Route("/image")
@@ -81,16 +83,25 @@ class ImageController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="image_delete", methods={"DELETE"})
+     * @Route("/{id}/delete", name="image_delete", requirements = {"id": "\d+"})
+     * @Security("is_granted('ROLE_ADMIN')")
      */
-    public function delete(Request $request, Image $image): Response
+    public function delete(Request $request, EntityManagerInterface $entityManager, Image $image): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$image->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
+        $form = $this->createFormBuilder()
+            ->add('delete', SubmitType::class, [
+                'label' => 'Supprimer',
+            ])
+            ->getForm();
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->remove($image);
             $entityManager->flush();
+            $this->addFlash('success', 'Image supprimée');
+            return $this->redirectToRoute('image_index');
         }
 
-        return $this->redirectToRoute('image_index');
+         // Ne pas oublier de créer le fichier twig
+         return $this->render('image/delete.html.twig', ['image' => $image, 'form' => $form->createView()]);
     }
 }
