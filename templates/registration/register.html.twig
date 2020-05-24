@@ -3,16 +3,26 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-<div class="container">
-    <h1>Register</h1>
+<div class="container text-center">
+    <div class="row align-items-center justify-content-center">
+        <div data-aos="flip-up" class="col-12 col-md-3 order-md-1">
+            <img class="register-sign " src="{{ asset('img/register-sign-1.jpeg') }}">
+        </div>
+        <div data-aos="flip-down" class="col-12 col-md-3 pt-3 order-md-3">
+            <img class="register-sign " src="{{ asset('img/register-sign-2.jpeg') }}">
+        </div>
+        <div class="col-12 col-md-6 pt-3 order-md-2">
+        <h1>Register</h1>
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.username) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword) }}
-        <span id="tooltip-register" data-tippy-content="Site fictif crée dans le cadre de la formation avec NumeriCALL.">{{ form_row(registrationForm.agreeTerms) }}</span>
+        {{ form_start(registrationForm) }}
+            {{ form_row(registrationForm.username) }}
+            {{ form_row(registrationForm.email) }}
+            {{ form_row(registrationForm.plainPassword) }}
+            <span id="tooltip-register" data-tippy-content="Site fictif crée dans le cadre de la formation avec NumeriCALL.">{{ form_row(registrationForm.agreeTerms) }}</span>
 
-        <button type="submit" class="btn btn-danger">Register</button>
-    {{ form_end(registrationForm) }}
+            <button type="submit" class="btn btn-danger">Register</button>
+        {{ form_end(registrationForm) }}
+        </div>
+    </div>
 </div>
 {% endblock %}
