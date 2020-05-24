@@ -141,7 +141,14 @@ nav {
 }
 
 .language:hover{
-    background-color:rgb(187, 51, 56);
+    background: rgb(170, 7, 12);
+    background: -moz-linear-gradient(45deg, rgba(170, 7, 12,1) 0%, rgba(170, 7, 12,1) 49%, rgba(181,106,109,1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(170, 7, 12,1)), color-stop(49%, rgba(170, 7, 12,1)), color-stop(100%, rgba(181,106,109,1)));
+    background: -webkit-linear-gradient(45deg, rgba(170, 7, 12,1) 0%, rgba(170, 7, 12,1) 49%, rgba(181,106,109,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(170, 7, 12,1) 0%, rgba(170, 7, 12,1) 49%, rgba(181,106,109,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(170, 7, 12,1) 0%, rgba(170, 7, 12,1) 49%, rgba(181,106,109,1) 100%);
+    background: linear-gradient(45deg, rgba(170, 7, 12,1) 0%, rgba(170, 7, 12,1) 49%, rgba(181,106,109,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b81e23', endColorstr='#b56a6d', GradientType=1 );
 }
 
 @media (max-width : 768px) {
@@ -258,7 +265,7 @@ a#pagination.page-link {
 //DEBUT FOOTER
 ///////////////////////////////////////
 footer{
-    height: 120px;
+    height: 131px;
     width: 100%;
     position: absolute;
     bottom: 0;
@@ -685,6 +692,13 @@ footer a{
 #tooltip-register{
     width: 150px;
     display: block;
+}
+
+.register-sign{
+    border: 10px solid white;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
 }
 ///////////////////////////////////////
 //FIN REGISTER
