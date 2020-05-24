@@ -21,3 +21,7 @@ tippy('[data-tippy-content]',{
     arrow: false,
     animation: 'scale-subtle',
 });
+
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init();
