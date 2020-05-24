@@ -372,23 +372,25 @@ footer a{
     height: 280px;
     z-index: 2;
 }
-///////////////////////////////////////
-//FIN HOME
-/////////////////////////////////////// 
 
-
-///////////////////////////////////////
-//DEBUT REGISTER
-/////////////////////////////////////// 
-#tooltip-register{
-    width: 150px;
-    display: block;
+.boir{
+    margin-top: 10px;
 }
-///////////////////////////////////////
-//FIN REGISTER
-/////////////////////////////////////// 
+
+@keyframes wheelHueColor {
+    from, to { color: #f9b34a; }
+    25%      { color: #ec1f24; }
+    50%      { color: #165229; }
+    75%      { color: #191919; }
+    
+}
+.colorchang{
+    color: hsl(0, 0%, 0%);
+    animation: wheelHueColor 5s infinite;
+}
 
 
+// Bublle Effect
 
 #bubbles {
     padding: 100px 0;
@@ -630,3 +632,23 @@ footer a{
 		margin-left: 50px;
 	}
 }
+// fin Bubble Effect
+
+///////////////////////////////////////
+//FIN HOME
+/////////////////////////////////////// 
+
+
+///////////////////////////////////////
+//DEBUT REGISTER
+/////////////////////////////////////// 
+#tooltip-register{
+    width: 150px;
+    display: block;
+}
+///////////////////////////////////////
+//FIN REGISTER
+/////////////////////////////////////// 
+
+
+
