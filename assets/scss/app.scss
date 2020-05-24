@@ -369,7 +369,7 @@ footer a{
 }
 
 .boire-conduire{
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,.4);
 }
 
 #beer-home{
@@ -382,18 +382,18 @@ footer a{
     z-index: 2;
 }
 
-.wrapper1{
+.separator1{
     background: url(../../public/img/filled-clear-glass-995686.jpg) no-repeat center center;
     margin-top: -100px;
 }
 
-.wrapper2{
+.separator2{
     background: url(../../public/img/photo-of-beer-neon-signage-2599245.jpg) no-repeat center center;
     margin-bottom: -100px;
 }
 
-.wrapper1,
-.wrapper2{
+.separator1,
+.separator2{
     height: 500px;
     background-size: cover;
 }
