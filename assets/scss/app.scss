@@ -16,7 +16,9 @@ $light: #FFF9F1;
 
 body {
     overflow-x: hidden;
+    padding-top: 100px;
     min-height: 100vh;
+    padding-bottom: 150px;
     position: relative;
     color: $secondary;
     background: url(../../public/img/fond_2.png) $light repeat;
@@ -248,6 +250,9 @@ footer{
     footer{
         height: 270px;
     }
+    body{
+        padding-bottom: 300px;
+    }
 }
 
 footer p{
@@ -377,7 +382,7 @@ footer a{
 
 .wrapper2{
     background: url(../../public/img/photo-of-beer-neon-signage-2599245.jpg) no-repeat center center;
-    margin-bottom:-100px;
+    margin-bottom: -100px;
 }
 
 .wrapper1,
