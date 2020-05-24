@@ -2,7 +2,9 @@
 
 namespace App\Repository;
 
+use App\Entity\Beer;
 use App\Entity\BeerScoreComment;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -47,4 +49,15 @@ class BeerScoreCommentRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function findOneByBeerUser(Beer $beer, User $user): ?BeerScoreComment
+    {
+        return $this->createQueryBuilder('s')
+            ->andWhere('s.beer = :beer')
+            ->andWhere('s.user = :user')
+            ->setParameter('beer', $beer)
+            ->setParameter('user', $user)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
 }

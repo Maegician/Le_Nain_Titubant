@@ -8,11 +8,15 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Beer;
+use App\Entity\BeerScoreComment;
 use App\Form\BeerType;
 use App\Repository\BeerRepository;
+use App\Repository\BeerScoreCommentRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Contracts\Translation\TranslatorInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * @Route("/beer")
@@ -140,6 +144,52 @@ class BeerController extends AbstractController
     public function show(Beer $beer): Response
     {
         return $this->render('beer/show.html.twig', ['beer' => $beer]);
+    }
+
+    /**
+     * @Route("/{id}/score.{_format}", requirements={"id": "\d+", "_format": "html|json"}, defaults={"_format": "html"})
+     * @Security("is_granted('ROLE_USER')")
+     */
+    public function score(Request $request, Beer $beer, TranslatorInterface $translator, BeerScoreCommentRepository $asRepository, EntityManagerInterface $entityManager, string $_format): Response
+    {
+        $user = $this->getUser(); // Utilisateur connecté
+        /*
+            Test d'abord si l'utilisateur a déjà entré un score (findOneByBeerUser)
+            Si oui on modifie ce score
+            Si non on ajoute un nouveau score
+        */
+
+        // Test si le token csrf est valide
+        if ($this->isCsrfTokenValid('score'.$beer->getId(), $request->request->get('_token'))) {
+            // Récupére le score entré par l'utilisateur
+            $score = $asRepository->findOneByBeerUser($beer, $user);
+            if (null == $score) { // Pas encore entré de score
+                $score = (new BeerScoreComment()) // Crée une nouvelle entité score
+                    ->setUser($user)
+                    ->setBeer($beer)
+                ;
+            }
+            // intval converti une chaîne en nombre entier
+            $score->setScore(intval($request->request->get('score')));
+            $score->setComment(intval($request->request->get('comment')));
+
+            $entityManager->persist($score);
+            $entityManager->flush();
+            if ($request->isXmlHttpRequest()) {
+            // $this->addFlash('success', $translator->trans('beer.score.success'));
+            } else {
+            if ($request->isXmlHttpRequest()) {
+            // $this->addFlash('error', $translator->trans('beer.score.error'));
+            }
+                    }
+
+            // Test si la requête s'est faite en AJAX
+            if ($request->isXmlHttpRequest() || 'json' == $_format) {
+            return new JsonResponse(['status' => 'success', 'message' => $translator->trans('beer.score.success')]);
+            }
+
+        return $this->redirectToRoute('app_beer_show', ['id' => $beer->getId()]);
+        }
     }
 }
 
