@@ -116,7 +116,14 @@ nav {
 }
 
 .language{
-    background-color:$danger;
+    background: rgba(184,30,35,1);
+    background: -moz-linear-gradient(45deg, rgba(184,30,35,1) 0%, rgba(184,30,35,1) 49%, rgba(181,106,109,1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(184,30,35,1)), color-stop(49%, rgba(184,30,35,1)), color-stop(100%, rgba(181,106,109,1)));
+    background: -webkit-linear-gradient(45deg, rgba(184,30,35,1) 0%, rgba(184,30,35,1) 49%, rgba(181,106,109,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(184,30,35,1) 0%, rgba(184,30,35,1) 49%, rgba(181,106,109,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(184,30,35,1) 0%, rgba(184,30,35,1) 49%, rgba(181,106,109,1) 100%);
+    background: linear-gradient(45deg, rgba(184,30,35,1) 0%, rgba(184,30,35,1) 49%, rgba(181,106,109,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b81e23', endColorstr='#b56a6d', GradientType=1 );
     border-radius: 50%;
     position: fixed;
     top: 10px;
@@ -125,9 +132,9 @@ nav {
     z-index:1031;
     padding: 10px;
     transform: rotate(15deg);
-    -webkit-box-shadow: 10px 10px 28px -8px rgba(33,33,33,1);
-    -moz-box-shadow: 10px 10px 28px -8px rgba(33,33,33,1);
-    box-shadow: 10px 10px 28px -8px rgba(33,33,33,1);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     text-decoration: none;
     list-style-type: none;
     transition: 300ms;
@@ -362,7 +369,7 @@ footer a{
 }
 
 .boire-conduire{
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,.4);
 }
 
 #beer-home{
@@ -375,18 +382,18 @@ footer a{
     z-index: 2;
 }
 
-.wrapper1{
+.separator1{
     background: url(../../public/img/filled-clear-glass-995686.jpg) no-repeat center center;
     margin-top: -100px;
 }
 
-.wrapper2{
+.separator2{
     background: url(../../public/img/photo-of-beer-neon-signage-2599245.jpg) no-repeat center center;
     margin-bottom: -100px;
 }
 
-.wrapper1,
-.wrapper2{
+.separator1,
+.separator2{
     height: 500px;
     background-size: cover;
 }
