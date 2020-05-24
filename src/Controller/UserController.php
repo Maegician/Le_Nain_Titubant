@@ -84,7 +84,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="user_delete", methods={"DELETE"})
+     * @Route("/{id}/delete", name="user_delete", methods={"DELETE"})
      * @Security("is_granted('ROLE_ADMIN')")
      */
     public function delete(Request $request, User $user): Response
