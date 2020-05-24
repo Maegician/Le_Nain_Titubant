@@ -3,40 +3,40 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-<div class="container">
-    <form method="post">
-        {% if error %}
-            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-        {% endif %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <form method="post">
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
 
-        {% if app.user %}
-            <div class="mb-3">
-                You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-            </div>
-        {% endif %}
+                {% if app.user %}
+                    <div class="mb-3">
+                        You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                    </div>
+                {% endif %}
 
-        <h1 class="mb-3">Please log in</h1>
-        <label for="inputUsername">Username</label>
-        <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" required autofocus>
-        {# <label for="inputEmail">Email</label>
-        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus> #}
-        <label for="inputPassword">Password</label>
-        <input type="password" name="password" id="inputPassword" class="form-control" required>
+                <h1 class="mb-3">Log in</h1>
+                <label for="inputUsername" class="my-2">Username</label>
+                <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control mb-4" required autofocus>
+                {# <label for="inputEmail">Email</label>
+                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus> #}
+                <label for="inputPassword" class="my-2">Password</label>
+                <input type="password" name="password" id="inputPassword" class="form-control mb-4" required>
 
-        <input type="hidden" name="_csrf_token"
-            value="{{ csrf_token('authenticate') }}"
-        >
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-        
-            <div class="checkbox mb-3">
-                <input type="checkbox" id="remember_me" name="_remember_me" checked/>
-                <label for="remember_me">Keep me logged in</label>
-            </div>
-    
+                <div class="checkbox mb-3" data-tippy-content="Attention ! N'utiliser cette fonctionnalité que sur un appareil de confiance.">
+                    <input type="checkbox" id="remember_me" name="_remember_me" checked/>
+                    <label for="remember_me">Keep me logged in</label>
+                </div>
 
-        <button class="btn btn-lg btn-danger" type="submit">
-            Sign in
-        </button>
-    </form>
+                <button class="btn btn-lg btn-danger mt-5" type="submit">
+                    Sign in
+                </button>
+            </form>
+        </div>
+    </div>
 </div>
 {% endblock %}
