@@ -1,17 +1,17 @@
 {% extends 'admin_base.html.twig' %}
 
-{% block title %}Image index{% endblock %}
+{% block title %}{{'image.index'|trans}}{% endblock %}
 
 {% block body %}
-    <h1>Image index</h1>
+    <h1>{{'image.index'|trans}}</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Chemin</th>
-                <th>Actions</th>
+                <th>{{'image.id'|trans}}</th>
+                <th>{{'image.name'|trans}}</th>
+                <th>{{'image.path'|trans}}</th>
+                <th>{{'actions'|trans}}</th>
             </tr>
         </thead>
         <tbody>
@@ -27,11 +27,11 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">{{'no.records.found'|trans}}</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('image_add') }}">Ajouter une nouvelle image</a>
+    <a href="{{ path('image_add') }}">{{'image.add'|trans}}</a>
 {% endblock %}

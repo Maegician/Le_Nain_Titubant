@@ -1,11 +1,11 @@
 {% extends 'admin_base.html.twig' %}
 
-{% block title %}Nouvelle image{% endblock %}
+{% block title %}{{'image.add'|trans}}{% endblock %}
 
 {% block body %}
-    <h1>Ajouter une image</h1>
+    <h1>{{'image.add'|trans}}</h1>
 
     {{ include('image/_form.html.twig') }}
 
-    <a href="{{ path('image_index') }}">retour à la liste</a>
+    <a href="{{ path('image_index') }}">{{'list.return'|trans}}</a>
 {% endblock %}

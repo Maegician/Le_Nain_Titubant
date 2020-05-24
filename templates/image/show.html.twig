@@ -1,30 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Image{% endblock %}
+{% block title %}{{'image'|trans}}{% endblock %}
 
 {% block body %}
-    <h1>Image</h1>
+    <h1>{{'image'|trans}}</h1>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>{{'image.id'|trans}}</th>
                 <td>{{ image.id }}</td>
             </tr>
             <tr>
-                <th>Nom</th>
+                <th>{{'image.name'|trans}}</th>
                 <td>{{ image.name }}</td>
             </tr>
             <tr>
-                <th>Chemin</th>
+                <th>{{'image.path'|trans}}</th>
                 <td>{{ image.path }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('image_index') }}">retour à la liste</a>
+    <a href="{{ path('image_index') }}">{{'list.return'|trans}}</a>
 
-    <a href="{{ path('image_edit', {'id': image.id}) }}">modifier</a>
+    <a href="{{ path('image_edit', {'id': image.id}) }}">{{'edit'|trans}}</a>
 
     {{ include('image/_delete_form.html.twig') }}
 {% endblock %}
