@@ -3,15 +3,17 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-<div class="container text-center mt-5">
+<div class="register-info container text-center text-white my-5 p-5">
+    <p>
+        Devenez acteur de la communauté Le Nain Titubant en vous inscrivant !<br/>
+        Votre compte utilisateur vous permettra d'évaluer les bières de notre base de données,<br/>
+        et ainsi de faire profiter de votre expertise à tous.
+    </p>
+</div>
+
+<div class="container text-center">
     <div class="row align-items-center justify-content-center">
-        <div data-aos="flip-up" class="col-12 col-md-3 order-md-1">
-            <img class="register-sign " src="{{ asset('img/register-sign-1.jpeg') }}">
-        </div>
-        <div data-aos="flip-down" class="col-12 col-md-3 pt-3 order-md-3">
-            <img class="register-sign " src="{{ asset('img/register-sign-2.jpeg') }}">
-        </div>
-        <div class="col-12 col-md-6 pt-3 order-md-2">
+        <div class="col-12 col-md-6 order-md-2">
         <h1>Register</h1>
 
         {{ form_start(registrationForm) }}
@@ -22,6 +24,12 @@
 
             <button type="submit" class="btn btn-danger mt-5">Register</button>
         {{ form_end(registrationForm) }}
+        </div>
+        <div data-aos="flip-up" class="col-12 col-md-3 order-md-1 my-2">
+            <img class="register-sign " src="{{ asset('img/register-sign-1.jpeg') }}">
+        </div>
+        <div data-aos="flip-down" class="col-12 col-md-3 order-md-3 my-2">
+            <img class="register-sign " src="{{ asset('img/register-sign-2.jpeg') }}">
         </div>
     </div>
 </div>

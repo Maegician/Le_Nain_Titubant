@@ -700,6 +700,15 @@ footer a{
     -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
 }
+
+.register-info{
+    background: url(../../public/img/dark_wood.png) $light repeat;
+    transform: rotate(2deg);
+}
+
+.register-info p{
+    transform: rotate(-2deg);
+}
 ///////////////////////////////////////
 //FIN REGISTER
 /////////////////////////////////////// 
