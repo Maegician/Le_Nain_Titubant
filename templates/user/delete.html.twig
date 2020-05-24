@@ -1,0 +1,20 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block body %}
+<h1>Supprimer un utilisateur</h1>
+
+{{ form_start(form) }}
+{% embed 'decorators/_card.html.twig' with {"class": "border-danger"} %}
+{% block body %}
+    <p>{{'user.delete.confirm'|trans}} "{{ user.name }}".</p>
+{% endblock %}
+
+{% block footer %}
+    {{ form_widget(form.delete, {'attr': {'class': 'btn btn-danger'}}) }}
+    <a href="{{ path('app_user_index') }}" class="btn btn-secondary">Annuler</a>
+{% endblock %}
+
+{% endembed %}
+{{ form_end(form) }}
+
+{% endblock body %}
