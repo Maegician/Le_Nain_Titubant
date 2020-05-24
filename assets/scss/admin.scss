@@ -10,6 +10,32 @@ $side-width : 250px;
     display: flex;
     width: 100%;
     align-items: stretch;
+    height: 100vh;
+}
+
+h1{
+    color: #c9bea8;
+    margin-top: 10px;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #c99326;
+    border-color: #c993264f;
+}
+
+.btn-success:hover {
+    color: #fff;
+    background-color: #958838;
+    border-color: #958838;
+}
+
+body{
+    background: url(../../public/img/admin_pic2.jpg) repeat;
+}
+
+#catg{
+    background-color: white;
 }
 
 #sidebar {
@@ -17,14 +43,14 @@ $side-width : 250px;
     max-width: $side-width;
     position: fixed;
     min-height: 100vh;
-    background: lighten($primary, 10%);
+    background: #5e7971;
     color: #fff;
 
     .sidebar-header {
         padding: 12px;
         font-size: 1.2rem;
         font-weight: bold;
-        background: $primary;
+        background: #5e7971;
     }
 
     ul.components {
