@@ -16,6 +16,7 @@
         <table class="table">
             <thead class="thead-dark">
                 <tr>
+                    <th>{{ 'beer.id'|trans }}</th>
                     <th>{{ 'beer.image'|trans }}</th>
                     <th>{{ 'beer.name'|trans }}</th>
                     <th>{{ 'beer.category'|trans }}</th>
@@ -29,6 +30,7 @@
             <tbody>
                 {% for beer in beers %}
                 <tr>
+                    <td>{{ beer.id }}</td>
                     <td>
                         {% if beer.image is not empty %}
                         <img src="{{ asset(beer.image.webPath) }}" style="max-height: 80px"/>
@@ -52,7 +54,10 @@
     {% endblock %}
 
     {% block footer %}
-        {% include 'decorators/_paginationAdmin.html.twig' with {'route': 'app_beer_admin'} %}
+        <div class="row justify-content-center">
+            {% include 'decorators/_paginationAdmin.html.twig' with {'route': 'app_beer_admin'} %}
+        </div>
+        
     {% endblock %}
 
     {% endembed %}

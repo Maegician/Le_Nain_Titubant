@@ -27,9 +27,9 @@ class BeerRepository extends ServiceEntityRepository
         // dans une requête Doctrine on n'écrit pas les noms de colonne mais bien les propriétés de l'objet Beer
         // Doctrine va ainsi générer la requête en fonction du moteur de base de données
         $query = $this->createQueryBuilder('b')
-            ->where('b.origin LIKE :search')
+            ->where('b.category LIKE :search')
             ->setParameter(':search', '%' . $search . '%')
-            ->orderBy('b.name', 'desc')
+            ->orderBy('b.name', 'asc')
             ->getQuery();
         // Retourne le résultat sous forme d'array d'objet Beer
         return $query->getResult();
@@ -39,7 +39,7 @@ class BeerRepository extends ServiceEntityRepository
     {
         $firstResult = ($page - 1) * $countPerPage;
         $query = $this->createQueryBuilder('b')
-            ->orderBy('b.name', 'desc')
+            ->orderBy('b.name', 'asc')
             ->setFirstResult($firstResult) // OFFSET
             ->setMaxResults($countPerPage) // LIMIT
             ->getQuery();
