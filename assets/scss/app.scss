@@ -695,13 +695,10 @@ footer a{
 
 .register-sign{
     border: 10px solid;
-    border-image: 
-    linear-gradient(
-      to bottom, 
-      rgb(255, 255, 255), 
-      #ffe6bf
-    ) 1 100%;
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
+    border-image-slice: 1;
+    border-width: 10px;
+    border-image-source: linear-gradient(to bottom, black, $success);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(255, 255, 255, 0.5);
     -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
 }
