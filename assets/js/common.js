@@ -17,7 +17,7 @@ import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/scale-subtle.css';
 
 tippy('[data-tippy-content]',{
-    placement: 'right-start',
+    placement: 'bottom-start',
     arrow: false,
     animation: 'scale-subtle',
 });
