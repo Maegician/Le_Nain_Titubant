@@ -3,9 +3,13 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-<div class="container my-5">
-    <div class="row justify-content-center">
-        <div class="col-6">
+<div class="container text-center my-5">
+    <div class="row align-items-center justify-content-center">
+        <div data-aos="zoom-in-right" class="col-12 col-md-3">
+            <img class="register-sign my-2 mr-4" src="{{ asset('img/register-sign-3.jpg') }}">
+            <img class="register-sign my-2" src="{{ asset('img/register-sign-4.jpg') }}">
+        </div>
+        <div class="col-12 col-md-6 my-3">
             <form method="post">
                 {% if error %}
                     <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -37,6 +41,11 @@
                 </button>
             </form>
         </div>
+        <div data-aos="zoom-in-left" class="col-12 col-md-3">
+            <img class="register-sign my-2 mr-4" src="{{ asset('img/register-sign-5.jpg') }}">
+            <img class="register-sign my-2" src="{{ asset('img/register-sign-6.jpg') }}">
+        </div>
     </div>
 </div>
+<div class="separator separator3"></div>
 {% endblock %}
