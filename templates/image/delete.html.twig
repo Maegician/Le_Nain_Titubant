@@ -7,6 +7,9 @@
 {% embed 'decorators/_card.html.twig' with {"class": "border-danger"} %}
 {% block body %}
     <p>{{'image.delete.confirm'|trans}} "{{ image.name }}".</p>
+    {% if image.path is not empty %}
+        <img src="{{ asset(image.webPath) }}" style="max-height: 500px"/>
+    {% endif %}
 {% endblock %}
 
 {% block footer %}

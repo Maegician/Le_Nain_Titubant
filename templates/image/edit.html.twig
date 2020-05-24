@@ -5,6 +5,10 @@
 {% block body %}
     <h1>{{'image.edit'|trans}}</h1>
 
+    {% if image.path is not empty %}
+        <img src="{{ asset(image.webPath) }}" style="max-height: 500px"/>
+    {% endif %}
+
     {{ include('image/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
     {{ include('image/_delete_form.html.twig') }}

@@ -8,7 +8,7 @@
 {% embed "decorators/_card.html.twig" with {'class': 'my-3'} %}
     {% block header %}
     <div class="d-flex justify-content-between">
-        <div>{{ 'beer.result_count'|trans({'count': images|length }) }}</div>
+        <div>{{ 'image.result_count'|trans({'count': images|length }) }}</div>
         <a href="{{ path('image_add')}}" class="btn btn-success"><i class="fas fa-plus"></i> {{ 'image.add.name'|trans }}</a>
     </div>
     {% endblock %}
@@ -19,6 +19,7 @@
             <thead class="thead-dark">
                 <tr>
                     <th>{{'image.id'|trans}}</th>
+                    <th>{{'image.image'|trans}}</th>
                     <th>{{'image.name'|trans}}</th>
                     <th>{{'image.path'|trans}}</th>
                     <th>{{'actions'|trans}}</th>
@@ -28,6 +29,11 @@
             {% for image in images %}
                 <tr>
                     <td>{{ image.id }}</td>
+                    <td>
+                        {% if image.path is not empty %}
+                        <img src="{{ asset(image.webPath) }}" style="max-height: 80px"/>
+                        {% endif %}
+                    </td>
                     <td>{{ image.name }}</td>
                     <td>{{ image.path }}</td>
                     <td>
