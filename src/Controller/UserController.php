@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  * @Route("/user")
@@ -34,13 +35,20 @@ class UserController extends AbstractController
      * @Route("/new", name="user_new", methods={"GET","POST"})
      * @Security("is_granted('ROLE_ADMIN')")
      */
-    public function new(Request $request): Response
+    public function new(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
     {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // encode the plain password
+            $user->setPassword(
+                $passwordEncoder->encodePassword(
+                    $user,
+                    $form->get('plainPassword')->getData()
+                )
+            );
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
@@ -69,13 +77,27 @@ class UserController extends AbstractController
      * @Route("/{id}/edit", name="user_edit", methods={"GET","POST"})
      * @Security("is_granted('ROLE_ADMIN')")
      */
-    public function edit(Request $request, User $user): Response
+    public function edit(Request $request,
+    User $user,
+    UserPasswordEncoderInterface $passwordEncoder
+    ): Response
     {
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+
+            // encode the plain password
+            $user->setPassword(
+                $passwordEncoder->encodePassword(
+                    $user,
+                    $form->get('plainPassword')->getData()
+                )
+                );
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
 
             return $this->redirectToRoute('user_index');
         }
@@ -87,11 +109,7 @@ class UserController extends AbstractController
     }
 
     /**
-<<<<<<< HEAD
-     * @Route("/{id}/delete", name="user_delete", methods={"DELETE"})
-=======
      * @Route("/{id}/delete", requirements = {"id": "\d+"})
->>>>>>> fe618513... user
      * @Security("is_granted('ROLE_ADMIN')")
      */
     public function delete(Request $request, EntityManagerInterface $entityManager, User $user): Response
