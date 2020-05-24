@@ -6,7 +6,7 @@
 {{ form_start(form) }}
 {% embed 'decorators/_card.html.twig' with {"class": "border-danger"} %}
 {% block body %}
-    <p>Confirmer la suppression de la bière "{{ beer.name }}".</p>
+    <p>{{'beer.delete.confirm'|trans}} "{{ beer.name }}".</p>
 {% endblock %}
 
 {% block footer %}

@@ -66,7 +66,7 @@ class BeerController extends AbstractController
     public function index(Request $request, BeerRepository $repository, int $page): Response
     {
         $search = $request->get('search', '');
-        $countPerPage = 9;
+        $countPerPage = 6;
         if (empty($search)) {
             $beers = $repository->findAll($page, $countPerPage);
         } else {
@@ -84,14 +84,14 @@ class BeerController extends AbstractController
     public function admin(Request $request, BeerRepository $repository, $page = 1): Response
     {
         $search = $request->get('search', '');
-        $countPerPage = 30;
+        $countPerPage = 10;
         if (empty($search)) {
             $beers = $repository->findAll($page, $countPerPage);
         } else {
             $beers = $repository->findBySearch($search, $page, $countPerPage);
         }
         // Calcul du nombre de page
-        $nbPages = ($beers->count() / $countPerPage);
+        $nbPages = ceil($beers->count() / $countPerPage);
         return $this->render('beer/admin.html.twig', ['beers' => $beers, 'nbPages' => $nbPages, 'page' => $page]);
     }
 

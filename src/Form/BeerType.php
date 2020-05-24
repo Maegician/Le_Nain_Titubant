@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 
 class BeerType extends AbstractType
@@ -21,12 +22,12 @@ class BeerType extends AbstractType
     {
         // Ajout des champs dans le formulaire
         $builder
-            ->add('name')
-            ->add('origin')
-            ->add('alcohol')
-            ->add('brewing_type')
-            ->add('description')
-            // ->add('description', TextareaType::class, ['label' => 'beer.description', 'attr' => ['class' => 'wysiwyg']])
+            ->add('name', TextType::class, ['label' => 'beer.name'])
+            ->add('origin', TextType::class, ['label' => 'beer.origin'])
+            ->add('alcohol', TextType::class, ['label' => 'beer.alcohol'])
+            ->add('brewing_type', TextType::class, ['label' => 'beer.brewing_type'])
+            ->add('description', TextareaType::class, ['label' => 'beer.description'])
+            // ->add('description', TextareaType::class, ['label' => 'beer.description', 'attr' => ['class' => 'wysiwyg']]) // désactivé car affiche les balises html
 
             ->add('image', ImageType::class, ['label' => false])
             
