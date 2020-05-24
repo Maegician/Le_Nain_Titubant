@@ -2,14 +2,18 @@
 
 namespace App\Controller;
 
+use App\Entity\Beer;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  * @Route("/user")
@@ -31,13 +35,20 @@ class UserController extends AbstractController
      * @Route("/new", name="user_new", methods={"GET","POST"})
      * @Security("is_granted('ROLE_ADMIN')")
      */
-    public function new(Request $request): Response
+    public function new(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
     {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // encode the plain password
+            $user->setPassword(
+                $passwordEncoder->encodePassword(
+                    $user,
+                    $form->get('plainPassword')->getData()
+                )
+            );
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
@@ -66,13 +77,27 @@ class UserController extends AbstractController
      * @Route("/{id}/edit", name="user_edit", methods={"GET","POST"})
      * @Security("is_granted('ROLE_ADMIN')")
      */
-    public function edit(Request $request, User $user): Response
+    public function edit(Request $request,
+    User $user,
+    UserPasswordEncoderInterface $passwordEncoder
+    ): Response
     {
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+
+            // encode the plain password
+            $user->setPassword(
+                $passwordEncoder->encodePassword(
+                    $user,
+                    $form->get('plainPassword')->getData()
+                )
+                );
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
 
             return $this->redirectToRoute('user_index');
         }
@@ -84,17 +109,24 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/delete", name="user_delete", methods={"DELETE"})
+     * @Route("/{id}/delete", requirements = {"id": "\d+"})
      * @Security("is_granted('ROLE_ADMIN')")
      */
-    public function delete(Request $request, User $user): Response
+    public function delete(Request $request, EntityManagerInterface $entityManager, User $user): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
+        $form = $this->createFormBuilder()
+            ->add('delete', SubmitType::class, [
+                'label' => 'Supprimer',
+            ])
+            ->getForm();
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->remove($user);
             $entityManager->flush();
+            $this->addFlash('success', 'Utilisateur supprimé');
+            return $this->redirectToRoute('user_index');
         }
-
-        return $this->redirectToRoute('user_index');
+        // Ne pas oublier de créer le fichier twig
+        return $this->render('user/delete.html.twig', ['user' => $user, 'form' => $form->createView()]);   
     }
 }

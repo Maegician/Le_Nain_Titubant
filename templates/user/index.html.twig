@@ -39,7 +39,7 @@
 
                     <td>
                         <a href="{{ path('user_edit', {'id': user.id}) }}" class="btn btn-secondary"><i class="fas fa-edit"></i></a>
-                        <a href="{{ path('user_delete', {'id': user.id}) }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                        <a href="{{ path('app_user_delete', {'id': user.id}) }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
             {% else %}
