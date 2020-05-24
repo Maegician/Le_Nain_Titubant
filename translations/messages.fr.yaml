@@ -10,7 +10,7 @@ menu:
   back: Retour à la page d'accueil
 
 beer:
-  add:
+  add: Ajout
   category: Couleur
   delete: Supprimer
   name: Nom 
