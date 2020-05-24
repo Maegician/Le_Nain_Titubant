@@ -23,6 +23,7 @@ beer:
   brewing_type: Style
   result: Result
   beer.image.webPath: Link
+  description: Description
 
 form:
   name: Name
@@ -36,8 +37,5 @@ form:
 image:
   file: File
 
-registrationForm:
-  username:
-  email:  
-  plainPassword:
-  agreeTerms:
+actions: Action
+

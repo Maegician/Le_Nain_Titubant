@@ -17,13 +17,14 @@ beer:
   list: Liste des bières
   add.name: Nouvel ajout
   user: Utilisateur
-  alcohol: Degré
+  alcohol: Degrés
   image: Photo
   origin: Pays
   brewing_type: Style
   result: Résultat
   id: ID
-  beer.image.webPath:
+  beer.image.webPath: Lien du fichier
+  description: Description
    
 
 form:
@@ -40,11 +41,7 @@ image:
 
 actions: Action
 
-registrationForm:
-  username: Nom d'utilisateur
-  email: Email
-  plainPassword: Mot de passe
-  agreeTerms:
+
 
 
 
