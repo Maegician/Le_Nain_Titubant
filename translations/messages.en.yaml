@@ -63,7 +63,6 @@ category:
 
 user:
   index: User index
-
   id: Id
   username: Username
   email: Email
