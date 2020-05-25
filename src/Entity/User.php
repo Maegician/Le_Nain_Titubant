@@ -50,15 +50,15 @@ class User implements UserInterface
     /**
      * @ORM\OneToMany(targetEntity=BeerScoreComment::class, mappedBy="user")
      */
-    private $Id;
+    private $scoreComment;
 
     public function __construct()
     {
         $this->beers = new ArrayCollection();
-        $this->Id = new ArrayCollection();
+        $this->scoreComment = new ArrayCollection();
     }
 
-    public function getId(): ?int
+    public function getscoreComment(): ?int
     {
         return $this->id;
     }
@@ -148,8 +148,8 @@ class User implements UserInterface
 
     public function addId(BeerScoreComment $id): self
     {
-        if (!$this->Id->contains($id)) {
-            $this->Id[] = $id;
+        if (!$this->scoreComment->contains($id)) {
+            $this->scoreComment[] = $id;
             $id->setUser($this);
         }
 
@@ -175,8 +175,8 @@ class User implements UserInterface
     
     public function removeId(BeerScoreComment $id): self
     {
-        if ($this->Id->contains($id)) {
-            $this->Id->removeElement($id);
+        if ($this->scoreComment->contains($id)) {
+            $this->scoreComment->removeElement($id);
             // set the owning side to null (unless already changed)
             if ($id->getUser() === $this) {
                 $id->setUser(null);
