@@ -26,8 +26,8 @@ class BeerType extends AbstractType
             ->add('origin', TextType::class, ['label' => 'beer.origin'])
             ->add('alcohol', TextType::class, ['label' => 'beer.alcohol'])
             ->add('brewing_type', TextType::class, ['label' => 'beer.brewing_type'])
-            ->add('description', TextareaType::class, ['label' => 'beer.description'])
-            // ->add('description', TextareaType::class, ['label' => 'beer.description', 'attr' => ['class' => 'wysiwyg']]) // désactivé car affiche les balises html
+            ->add('description', TextareaType::class, ['label' => 'beer.description', 'attr' => ['class' => 'wysiwyg']]) // désactivé car affiche les balises html
+            // ->add('description', TextareaType::class, ['label' => 'beer.description'])
 
             ->add('image', ImageType::class, ['label' => false])
             
