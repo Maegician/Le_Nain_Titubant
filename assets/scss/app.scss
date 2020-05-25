@@ -233,6 +233,7 @@ a:hover {
     #details {
         display: flex;
         position: fixed;
+        z-index: -1;
     }
 }
 
