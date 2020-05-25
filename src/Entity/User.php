@@ -55,10 +55,10 @@ class User implements UserInterface
     public function __construct()
     {
         $this->beers = new ArrayCollection();
-        $this->scoreComment = new ArrayCollection();
+        $this->Id = new ArrayCollection();
     }
 
-    public function getscoreComment(): ?int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -148,8 +148,8 @@ class User implements UserInterface
 
     public function addId(BeerScoreComment $id): self
     {
-        if (!$this->scoreComment->contains($id)) {
-            $this->scoreComment[] = $id;
+        if (!$this->Id->contains($id)) {
+            $this->Id[] = $id;
             $id->setUser($this);
         }
 
@@ -175,8 +175,8 @@ class User implements UserInterface
     
     public function removeId(BeerScoreComment $id): self
     {
-        if ($this->scoreComment->contains($id)) {
-            $this->scoreComment->removeElement($id);
+        if ($this->Id->contains($id)) {
+            $this->Id->removeElement($id);
             // set the owning side to null (unless already changed)
             if ($id->getUser() === $this) {
                 $id->setUser(null);

@@ -233,6 +233,7 @@ a:hover {
     #details {
         display: flex;
         position: fixed;
+        z-index: -1;
     }
 }
 
@@ -288,6 +289,7 @@ footer{
     }
     body{
         padding-bottom: 300px;
+        padding-top: 200px;
     }
 }
 
@@ -705,10 +707,8 @@ footer a{
 }
 
 .register-sign{
-    border: 10px solid;
+    border: 10px solid white;
     border-image-slice: 1;
-    border-width: 10px;
-    border-image-source: linear-gradient(to bottom, black, $success);
     -webkit-box-shadow: 10px 10px 5px 0px rgba(255, 255, 255, 0.5);
     -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
@@ -790,6 +790,7 @@ footer a{
 
 #comment-list{
     padding-bottom: 100px;
+    min-height: 550px;
 }
 
 #score-form{
