@@ -47,7 +47,7 @@ class Beer
     /**
      * @ORM\OneToMany(targetEntity=BeerScoreComment::class, mappedBy="beer")
      */
-    private $Id;
+    private $scoreComments;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="beers")
@@ -71,7 +71,7 @@ class Beer
 
     public function __construct()
     {
-        $this->Id = new ArrayCollection();
+        $this->scoreComments = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -139,23 +139,28 @@ class Beer
         return $this;
     }
 
-    public function addId(BeerScoreComment $id): self
+    public function getScoreComments()
     {
-        if (!$this->Id->contains($id)) {
-            $this->Id[] = $id;
-            $id->setBeer($this);
+        return $this->scoreComments;
+    }
+
+    public function addScoreComment(BeerScoreComment $scoreComment): self
+    {
+        if (!$this->scoreComments->contains($scoreComment)) {
+            $this->scoreComments[] = $scoreComment;
+            $scoreComment->setBeer($this);
         }
 
         return $this;
     }
 
-    public function removeId(BeerScoreComment $id): self
+    public function removeScoreComment(BeerScoreComment $scoreComment): self
     {
-        if ($this->Id->contains($id)) {
-            $this->Id->removeElement($id);
+        if ($this->scoreComments->contains($scoreComment)) {
+            $this->scoreComments->removeElement($scoreComment);
             // set the owning side to null (unless already changed)
-            if ($id->getBeer() === $this) {
-                $id->setBeer(null);
+            if ($scoreComment->getBeer() === $this) {
+                $scoreComment->setBeer(null);
             }
         }
 
