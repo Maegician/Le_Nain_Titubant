@@ -41,7 +41,7 @@ if (null != scoreForm) { // Test si le formulaire existe bien
             commentDiv.innerHTML=json.comment.content;
             scoreDiv.innerHTML=json.comment.score;
             commentList.prepend(commentDiv);
-            commentList.prepend(scoreDiv);
+            commentDiv.prepend($scoreDiv);
         };
         // Récupére la valeur du bouton cliqué
         let formData = new FormData(scoreForm);
