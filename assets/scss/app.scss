@@ -727,3 +727,64 @@ footer a{
 ///////////////////////////////////////
 //FIN LOGIN
 /////////////////////////////////////// 
+
+
+
+///////////////////////////////////////
+//DEBUT COMMENT
+/////////////////////////////////////// 
+
+#comments{
+    width: 100%;
+    margin-bottom: -100px;
+    background: url(../../public/img/timothy-dykes-Lq1rOaigDoY-unsplash.jpg) no-repeat center center;
+}
+
+#comments .row{
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top:30px;
+}
+
+.comment-item {
+    background: white;
+    min-height: 80px;
+    max-height: 200px;
+    position: relative;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.comment-item:before {
+    content: "";
+    position: absolute;
+    left: 100%;
+    top: 26px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-left: 26px solid rgb(255, 255, 255);
+    border-bottom: 13px solid transparent;
+}
+
+.comment-item p{
+    overflow:auto;
+    max-height: 150px;
+}
+
+.overflow-y{
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#comment-list{
+    padding-bottom: 100px;
+}
+
+#score-form{
+    border-bottom: 10px dashed $danger;
+}
+
+///////////////////////////////////////
+//FIN COMMENT
+/////////////////////////////////////// 

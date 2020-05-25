@@ -14,7 +14,6 @@ import '../scss/app.scss';
 
 //Requete ajax
 let scoreForm = document.getElementById('score-form');
-let commentForm = document.getElementById('comment-form');
 let commentList = document.getElementById('comment-list');
 
 if (null != scoreForm) { // Test si le formulaire existe bien
@@ -34,6 +33,10 @@ if (null != scoreForm) { // Test si le formulaire existe bien
 
             let commentDiv=document.createElement('div');
             commentDiv.classList.add('comment-item');
+            commentDiv.classList.add('col-11');
+            commentDiv.classList.add('mb-4');
+            commentDiv.classList.add('p-3');
+            commentDiv.classList.add('overflow-y');
             commentDiv.innerHTML=json.comment.content;
             commentList.prepend(commentDiv);
         };

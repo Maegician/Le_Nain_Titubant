@@ -26,36 +26,48 @@
     </div>
 </div>  
 
-<hr/>
+<hr/ class="mt-5 mb-0">
 
-<div class="container">
-    <div class="row">
-        <div class="col-12 justify-content-center">
-            <form action="{{ path('app_beer_score', {'id' :beer.id}) }}" method="post" id="score-form">
-            <p>{{ 'beer.add_score'|trans }}</p>
-                <input type="radio" name="score" class="btn btn-link m-1" value="1"><i class="fas fa-beer"></i></input>
-                <input type="radio" name="score" class="btn btn-link m-1" value="2"><i class="fas fa-beer"></i></input>
-                <input type="radio" name="score" class="btn btn-link m-1" value="3"><i class="fas fa-beer"></i></input>
-                <input type="radio" name="score" class="btn btn-link m-1" value="4"><i class="fas fa-beer"></i></input>
-                <input type="radio" name="score" class="btn btn-link m-1" value="5"><i class="fas fa-beer"></i></input>
-                <input type="hidden" name="_token" value="{{ csrf_token('score' ~ beer.id) }}">
-            <div class="form-group">
-                <label for="comment">{{ 'beer.add_comment'|trans }}</label>
-                <textarea class="form-control" id="comment-form" rows="3" name="comment"></textarea>
-            </div>
-            <button type="submit" class="btn btn-danger">{{ 'submit_comment'|trans }}</button>
+<div class="container-fluid" id="comments">
+    <div class="row justify-content-center">
+        <div class="col-10 col-md-7">
+            <form action="{{ path('app_beer_score', {'id' :beer.id}) }}" method="post" id="score-form" class="mb-5">
+                <h2 class="text-white">{{ 'beer.add_score_comment'|trans }}</h2>
+                <div class="alert alert-dark" role="alert">
+                    Attention, vous ne pouvez évaluer qu'une fois chaque bière. Si vous publiez une nouvelle évaluation, la précédente sera supprimée.
+                </div>
+                <p class="text-white">{{ 'beer.add_score'|trans }}</p>
+                <div class="form-group mb-4">
+                    <ul class="list-group list-group-horizontal text-danger">
+                        <li class="list-group-item"><input type="radio" name="score" value="1" class="mx-2"><i class="fas fa-beer">&nbsp;1</i></input></li>
+                        <li class="list-group-item"><input type="radio" name="score" value="2" class="mx-2"><i class="fas fa-beer">&nbsp;2</i></input></li>
+                        <li class="list-group-item"><input type="radio" name="score" value="3" class="mx-2"><i class="fas fa-beer">&nbsp;3</i></input></li>
+                        <li class="list-group-item"><input type="radio" name="score" value="4" class="mx-2"><i class="fas fa-beer">&nbsp;4</i></input></li>
+                        <li class="list-group-item"><input type="radio" name="score" value="5" class="mx-2"><i class="fas fa-beer">&nbsp;5</i></input></li>
+                        <li><h3 class="m-2 text-white">/5</h3></li>
+                    <input type="hidden" name="_token" value="{{ csrf_token('score' ~ beer.id) }}">
+                    </ul>
+                </div>
+                <div class="form-group">
+                    <label class="text-white" for="comment">{{ 'beer.add_comment'|trans }}</label>
+                    <textarea class="form-control" id="comment-form" rows="3" name="comment"></textarea>
+                </div>
+                <button type="submit" class="btn btn-danger mb-3">{{ 'submit_comment'|trans }}</button>
             </form>
         </div>
     </div>
+    <div class="row justify-content-center align-items-start" id="comment-list">
+        {% for scoreComment in beer.scoreComments %}
+            <div class="comment-item col-6 col-md-9 p-3 mb-3 ml-3">
+                        {{ scoreComment.score }}/5&nbsp;<i class="fas fa-beer text-success"></i></br>
+                        <p>{{ scoreComment.comment }}</p>
+            </div>
+            <div class="col-4 col-md-2 text-left ml-3">
+                <button type="button" class="btn btn-danger text-lowercase">{{ scoreComment.user }}</button>
+            </div>
+        {% endfor %}
+    </div>
 </div>
 
-<div class="container" id="comment-list">
-    {% for scoreComment in beer.scoreComments %}
-    <div class="comment-item">
-        <div class="comment-score">{{ scoreComment.score }}</div>
-        {{ scoreComment.comment }}
-    </div>
-    {% endfor %}
-</div>
 
 {% endblock %}
