@@ -14,16 +14,10 @@ import '../scss/app.scss';
 
 //Requete ajax
 let scoreForm = document.getElementById('score-form');
-if (null != scoreForm) { // Test si le formulaire existe bien
-    let clickedSubmit = null;
+let commentForm = document.getElementById('comment-form');
+let commentList = document.getElementById('comment-list');
 
-    // Event onclick sur chaque boutons pour stocker le bouton qui a été cliqué
-    let submitButtons = scoreForm.querySelectorAll('button');
-    submitButtons.forEach((value) => {
-        value.onclick = function () {
-            clickedSubmit = this;
-        };
-    });
+if (null != scoreForm) { // Test si le formulaire existe bien
 
     scoreForm.onsubmit = () => {
         let request = new XMLHttpRequest();
@@ -31,16 +25,22 @@ if (null != scoreForm) { // Test si le formulaire existe bien
         request.open('post', scoreForm.getAttribute('action'));
         request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
         request.onload = () => {
+            console.log("request onload");
             let json = JSON.parse(request.responseText);
             let result = document.createElement('div');
             result.innerHTML = json.message;
-            scoreForm.parentNode.replaceChild(result, scoreForm);
+            scoreForm.parentNode.removeChild(scoreForm);
+
+
+            let commentDiv=document.createElement('div');
+            commentDiv.classList.add('comment-item');
+            commentDiv.innerHTML=json.comment.content;
+            commentList.prepend(commentDiv);
         };
         // Récupére la valeur du bouton cliqué
         let formData = new FormData(scoreForm);
-        formData.set('score', clickedSubmit.value);
         request.send(formData);
-
+        console.log(formData);
         return false; // empéche l'envois du formulaire
     }
 }

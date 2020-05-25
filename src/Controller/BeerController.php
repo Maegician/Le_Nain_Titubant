@@ -171,7 +171,7 @@ class BeerController extends AbstractController
             }
             // intval converti une chaîne en nombre entier
             $score->setScore(intval($request->request->get('score')));
-            $score->setComment(intval($request->request->get('comment')));
+            $score->setComment($request->request->get('comment'));
 
             $entityManager->persist($score);
             $entityManager->flush();
@@ -185,7 +185,10 @@ class BeerController extends AbstractController
 
             // Test si la requête s'est faite en AJAX
             if ($request->isXmlHttpRequest() || 'json' == $_format) {
-            return new JsonResponse(['status' => 'success', 'message' => $translator->trans('beer.score.success')]);
+            return new JsonResponse(['status' => 'success', 'message' => $translator->trans('beer.score.success'), 'comment'=>[
+                'score' => $score->getScore(),
+                'content' => $score->getComment()
+            ]]);
             }
 
         return $this->redirectToRoute('app_beer_show', ['id' => $beer->getId()]);
