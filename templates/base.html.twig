@@ -16,26 +16,30 @@
                 <a class="nav-link text-white" href="{{ path('app_app_home', {'_locale': 'en'}) }}">EN</a>
             </li>
         </ul>
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top text-uppercase">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+
+        <nav class="navbar navbar-expand-md flex-column fixed-top navbar-dark bg-secondary text-uppercase">
+            <a class="align-self-center pb-3 position-md-absolute navbar-brand" href="{{ path('app_app_home')}}">
+                <img src="{{ asset('img/logo.png') }}" width="120" alt="logo">
+            </a>
+            <a id="home-icon" class="position-md-absolute align-self-center " href="{{ path('app_app_home')}}" >
+                <i class="fas fa-home text-danger"></i>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
-            <ul class="navbar-nav collapse navbar-collapse justify-content-center align-items-start text-center" id="main-menu">
-                <li class="menu_left justify-content-end border-bottom border-danger">
-                    {{ knp_menu_render('main_left', {'style': 'horizontal'}) }} 
-                </li>
-                <li class="mx-5">
-                    <a href="{{ path('app_app_home')}}" class="navbar-brand">
-                        <img src="{{ asset('img/logo.png') }}" width="120" alt="logo">
-                    </a>
-                    <a href="{{ path('app_app_home')}}" >
-                        <i class="fas fa-home text-danger"></i>
-                    </a>
-                </li>
-                <li class="menu_right justify-content-start border-bottom border-danger">
-                    {{ knp_menu_render('main_right', {'style': 'horizontal'}) }} 
-                </li>
-            </ul>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav text-center border-bottom border-danger">
+                    <li class="nav-item">
+                        {{ knp_menu_render('main_left', {'style': 'horizontal'}) }}
+                    </li>
+                    <li id="gap">
+                    </li>
+                    <li class="nav-item">
+                        {{ knp_menu_render('main_right', {'style': 'horizontal'}) }}
+                    </li>
+                </ul>
+            </div>
         </nav>
 
         <div class="container">
