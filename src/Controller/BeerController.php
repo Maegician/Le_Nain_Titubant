@@ -132,7 +132,7 @@ class BeerController extends AbstractController
             $entityManager->remove($beer);
             $entityManager->flush();
             $this->addFlash('success', 'Bière supprimée');
-            return $this->redirectToRoute('app_beer_index');
+            return $this->redirectToRoute('app_beer_admin');
         }
         // Ne pas oublier de créer le fichier twig
         return $this->render('beer/delete.html.twig', ['beer' => $beer, 'form' => $form->createView()]);   

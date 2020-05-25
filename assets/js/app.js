@@ -32,13 +32,16 @@ if (null != scoreForm) { // Test si le formulaire existe bien
 
 
             let commentDiv=document.createElement('div');
+            let scoreDiv=document.createElement('div');
             commentDiv.classList.add('comment-item');
             commentDiv.classList.add('col-11');
             commentDiv.classList.add('mb-4');
             commentDiv.classList.add('p-3');
             commentDiv.classList.add('overflow-y');
             commentDiv.innerHTML=json.comment.content;
+            scoreDiv.innerHTML=json.comment.score;
             commentList.prepend(commentDiv);
+            commentDiv.prepend(scoreDiv);
         };
         // Récupére la valeur du bouton cliqué
         let formData = new FormData(scoreForm);

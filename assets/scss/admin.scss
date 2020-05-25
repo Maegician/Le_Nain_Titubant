@@ -1,5 +1,5 @@
-$primary: rgb(45, 163, 128);
-$success: rgb(39, 158, 98);
+$primary: #c99326;
+$success: #958838;
 
 @import '~bootswatch/dist/lumen/_variables.scss';
 @import 'common.scss';
@@ -14,7 +14,6 @@ $side-width : 250px;
 }
 
 h1{
-    color: #c9bea8;
     margin-top: 10px;
 }
 
@@ -31,7 +30,7 @@ h1{
 }
 
 body{
-    background: url(../../public/img/admin_pic2.jpg) repeat;
+    background: url(../../public/img/triangle-mosaic.png) repeat;
 }
 
 #catg{
@@ -43,14 +42,14 @@ body{
     max-width: $side-width;
     position: fixed;
     min-height: 100vh;
-    background: #5e7971;
+    background: #333;
     color: #fff;
 
     .sidebar-header {
         padding: 12px;
         font-size: 1.2rem;
         font-weight: bold;
-        background: #5e7971;
+        background: $dark;
     }
 
     ul.components {
@@ -104,4 +103,5 @@ body{
 
 #content {
     margin-left: $side-width;
+    padding-top:50px;
 }

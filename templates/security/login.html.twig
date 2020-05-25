@@ -11,7 +11,7 @@
         </div>
         <div class="col-12 col-md-6 my-3">
             <form method="post">
-                {% if error %}
+                {# {% if error %}
                     <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                 {% endif %}
 
@@ -19,25 +19,25 @@
                     <div class="mb-3">
                         You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
                     </div>
-                {% endif %}
+                {% endif %} #}
 
-                <h1 class="mb-3">Log in</h1>
-                <label for="inputUsername" class="my-2">Username</label>
+                <h1 class="mb-3">{{ 'login.login'|trans }}</h1>
+                <label for="inputUsername" class="my-2">{{ 'login.username'|trans }}</label>
                 <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control mb-4" required autofocus>
                 {# <label for="inputEmail">Email</label>
                 <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus> #}
-                <label for="inputPassword" class="my-2">Password</label>
+                <label for="inputPassword" class="my-2">{{ 'login.password'|trans }}</label>
                 <input type="password" name="password" id="inputPassword" class="form-control mb-4" required>
 
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
                 <div class="checkbox mb-3" data-tippy-content="Attention ! N'utiliser cette fonctionnalité que sur un appareil de confiance.">
                     <input type="checkbox" id="remember_me" name="_remember_me" checked/>
-                    <label for="remember_me">Keep me logged in</label>
+                    <label for="remember_me">{{ 'login.keep'|trans }}</label>
                 </div>
 
                 <button class="btn btn-lg btn-danger mt-5" type="submit">
-                    Sign in
+                    {{ 'login.login'|trans }}
                 </button>
             </form>
         </div>

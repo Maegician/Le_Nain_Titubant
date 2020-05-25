@@ -26,6 +26,9 @@ beer:
   beer.image.webPath: Link
   description: Description
   add_score: Rate this beer
+  add_score_comment: Rate
+  add_comment: Leave comment
+  add_warning: A beer can only be rated once. Any new comment will overwrite the previous one.
 
 form:
   name: Name
@@ -68,7 +71,25 @@ user:
   delete: Delete
   edit: Edit 
   add.name: Add a user name
+  registration: Register
 
 list:
   return: Back to User index
 
+registration:
+  email: Email
+  agreeTerms: Agree terms
+  password: Password
+  username: Username
+  errorTerms: You should agree our terms
+  roles: Roles
+  passwordError: Please enter a password
+  login: Login
+
+login:
+  keep: Keep me logged in
+  login: Login
+  password: Mot de passe
+  username: Nom d'utilisateur
+
+submit_comment: Submit
