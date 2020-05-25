@@ -50,7 +50,7 @@ class User implements UserInterface
     /**
      * @ORM\OneToMany(targetEntity=BeerScoreComment::class, mappedBy="user")
      */
-    private $scoreComment;
+    private $scoreComments;
 
     public function __construct()
     {
@@ -127,7 +127,7 @@ class User implements UserInterface
     {
         if (!$this->beers->contains($beer)) {
             $this->beers[] = $beer;
-            $beer->setUserId($this);
+            $beer->setUser($this);
         }
 
         return $this;
@@ -138,8 +138,8 @@ class User implements UserInterface
         if ($this->beers->contains($beer)) {
             $this->beers->removeElement($beer);
             // set the owning side to null (unless already changed)
-            if ($beer->getUserId() === $this) {
-                $beer->setUserId(null);
+            if ($beer->getUser() === $this) {
+                $beer->setUser(null);
             }
         }
 
@@ -189,5 +189,25 @@ class User implements UserInterface
     public function __toString()
     {
         return $this->getUsername();
+    }
+
+    /**
+     * Get the value of scoreComments
+     */ 
+    public function getScoreComments()
+    {
+        return $this->scoreComments;
+    }
+
+    /**
+     * Set the value of scoreComments
+     *
+     * @return  self
+     */ 
+    public function setScoreComments($scoreComments)
+    {
+        $this->scoreComments = $scoreComments;
+
+        return $this;
     }
 }

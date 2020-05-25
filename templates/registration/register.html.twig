@@ -14,7 +14,7 @@
 <div class="container text-center">
     <div class="row align-items-center justify-content-center">
         <div class="col-12 col-md-6 order-md-2">
-        <h1>Register</h1>
+        <h1>{{ 'user.registration'|trans }}</h1>
 
         {{ form_start(registrationForm) }}
             {{ form_row(registrationForm.username) }}
@@ -22,7 +22,7 @@
             {{ form_row(registrationForm.plainPassword) }}
             <span id="tooltip-register" data-tippy-content="Site fictif crée dans le cadre de la formation avec NumeriCALL.">{{ form_row(registrationForm.agreeTerms) }}</span>
 
-            <button type="submit" class="btn btn-danger mt-5">Register</button>
+            <button type="submit" class="btn btn-danger mt-5">{{ 'user.registration'|trans }}</button>
         {{ form_end(registrationForm) }}
         </div>
         <div data-aos="flip-up" class="col-12 col-md-3 order-md-1 my-2">

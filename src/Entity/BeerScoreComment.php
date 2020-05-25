@@ -34,7 +34,7 @@ class BeerScoreComment
     private $beer;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="Id")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="scoreComments")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;

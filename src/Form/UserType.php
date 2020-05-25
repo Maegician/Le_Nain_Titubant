@@ -17,8 +17,9 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('email', EmailType::class)
+        ->add('email', EmailType::class, ['label' => 'registration.email'])
         ->add('roles', ChoiceType::class, [
+            'label' => 'registration.roles',
             'multiple' => true,
             'expanded' => true,
             'choices' => [
@@ -26,11 +27,12 @@ class UserType extends AbstractType
                 'USER' => 'ROLE_USER',
             ],
             ])
-            ->add('username')
+            ->add('username', null,['label' => 'registration.username'])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
+                'label' => 'registration.password',
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Please enter a password',
