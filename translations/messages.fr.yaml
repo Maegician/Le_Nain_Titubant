@@ -26,6 +26,9 @@ beer:
   beer.image.webPath: Lien du fichier
   description: Description
   add_score: Donner une note à cette bière
+  add_score_comment: Evaluer
+  add_comment: Ajouter un commentaire
+  add_warning: Attention, vous ne pouvez évaluer qu'une fois chaque bière. Si vous publiez une nouvelle évaluation, la précédente sera supprimée.
    
 form:
   name: Nom
@@ -67,11 +70,28 @@ user:
   add: Ajouter
   delete: Supprimer
   edit: Modifier l'utilisateur
-  add.name: Ajouter un nom d'utilisateur
+  add.name: Ajouter un utilisateur
+  registration: S'inscrire
 
 list:
   return: Retour à la liste
 
+registration:
+  email: Adresse mail
+  agreeTerms: Accepter les termes
+  password: Mot de passe
+  username: Nom d'utilisateur
+  errorTerm: Vous devez accepter les CGU
+  roles: Rôles
+  passwordError: Veuillez entrer un mot de passe
+
+login:
+  keep: Maintenir la connexion
+  login: Se connecter
+  password: Mot de passe
+  username: Nom d'utilisateur
+
+submit_comment: Envoyer
 
 
 
