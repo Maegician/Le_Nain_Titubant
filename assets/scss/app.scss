@@ -83,13 +83,16 @@ nav {
 }
 
 
-.navbar-brand{
-    transition:300ms ease-in-out;
+#logo-content .navbar-brand{
+    transition:300ms;
 }
 
-#home-icon{
+.fa-home{
     font-size:2rem;
     top: -100px;
+    right: 49%;
+    position: fixed;
+    transition:300ms;
 }
 
 #gap{
@@ -100,6 +103,12 @@ nav {
     .position-md-absolute {
         position: absolute;
     }
+    #logo-content:hover .navbar-brand{
+        transform: translateY(-300px);
+    }
+    #logo-content:hover .fa-home{
+        transform:translateY(130px);
+    }
 }
 
 @media (max-width : 768px) {
@@ -107,7 +116,7 @@ nav {
         font-size:.8rem;
         padding: 5px;
     }
-    #home-icon{
+    .fa-home{
         display: none;
     }
     .navbar-brand img{

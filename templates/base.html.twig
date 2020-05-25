@@ -18,12 +18,14 @@
         </ul>
 
         <nav class="navbar navbar-expand-md flex-column fixed-top navbar-dark bg-secondary text-uppercase">
-            <a class="align-self-center pb-3 position-md-absolute navbar-brand" href="{{ path('app_app_home')}}">
-                <img src="{{ asset('img/logo.png') }}" width="120" alt="logo">
-            </a>
-            <a id="home-icon" class="position-md-absolute align-self-center " href="{{ path('app_app_home')}}" >
-                <i class="fas fa-home text-danger"></i>
-            </a>
+            <div class="align-self-center pb-3 position-md-absolute" id="logo-content">
+                <a class="navbar-brand" href="{{ path('app_app_home')}}">
+                    <img src="{{ asset('img/logo.png') }}" width="120" alt="logo">
+                </a>
+                <a href="{{ path('app_app_home')}}" >
+                    <i class="fas fa-home text-light"></i>
+                </a>
+            </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
