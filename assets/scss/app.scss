@@ -56,9 +56,9 @@ nav {
     content: '';
     position: absolute;
     z-index: -1;
-    top: -30px;
+    top: 30px;
     left: 0;
-    height: 75%;
+    height: 100%;
     width: 50.1%;
     background: url(../../public/img/ardoise_motif.jpg) center center;
     -webkit-box-shadow: inset -38px 0px 38px -4px rgba(0,0,0,0.75);
@@ -71,9 +71,9 @@ nav {
     content: '';
     position: absolute;
     z-index: -1;
-    top: -30px;
+    top: 30px;
     right: 0;
-    height: 75%;
+    height: 100%;
     width: 50.1%;
     background: url(../../public/img/ardoise_motif.jpg) center center;
     -webkit-box-shadow: inset 38px 0px 38px -4px rgba(0,0,0,0.75);
@@ -82,36 +82,46 @@ nav {
     transform: skew(0deg, -2deg);
 }
 
-.menu_right, .menu_left{
-    flex:2;
-    display: flex;
-}
 
-.navbar-brand{
-    flex:1;
-    transition:300ms ease-in-out;
-    display: none;
+#logo-content .navbar-brand{
+    transition:300ms;
 }
 
 .fa-home{
-    position: absolute;
+    font-size:2rem;
+    top: -100px;
     right: 49%;
-    top:-300px;
-    font-size: 2rem;
-    transition:300ms ease-in-out;
+    position: fixed;
+    transition:300ms;
 }
 
-@media (min-width : 768px) {
-    li.mx-5:hover .fa-home{
-        transform: translateY(330px);
-    }
+#gap{
+    width: 200px;
+}
 
-    li.mx-5:hover .navbar-brand{
+@media (min-width: 768px) {
+    .position-md-absolute {
+        position: absolute;
+    }
+    #logo-content:hover .navbar-brand{
         transform: translateY(-300px);
     }
+    #logo-content:hover .fa-home{
+        transform:translateY(130px);
+    }
+}
 
-    .navbar-brand{
-        display:flex;
+@media (max-width : 768px) {
+    .language{
+        font-size:.8rem;
+        padding: 5px;
+    }
+    .fa-home{
+        display: none;
+    }
+    .navbar-brand img{
+        height: 85px;
+        width: auto;
     }
 }
 
@@ -151,11 +161,6 @@ nav {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b81e23', endColorstr='#b56a6d', GradientType=1 );
 }
 
-@media (max-width : 768px) {
-    .language{
-        z-index: 1029;
-    }
-}
 
 ///////////////////////////////////////
 //FIN MENU
