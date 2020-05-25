@@ -114,7 +114,6 @@ class UserController extends AbstractController
      */
     public function delete(Request $request, EntityManagerInterface $entityManager, User $user): Response
     {
-        echo "lol"; die;
         $form = $this->createFormBuilder()
             ->add('delete', SubmitType::class, [
                 'label' => 'Supprimer',
