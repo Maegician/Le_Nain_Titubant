@@ -22,8 +22,10 @@ beer:
   origin: Country
   brewing_type: Style
   result: Result
+  id: Id
   beer.image.webPath: Link
   description: Description
+  add_score: Rate this beer
 
 form:
   name: Name
@@ -35,7 +37,38 @@ form:
   save: Save
   
 image:
-  file: File
+  file: File 
+  index: Image index
+  id: Id
+  name: File name
+  path: File path
+  add: Add
+  delete: Delete
+  edit: Edit
 
 actions: Action
+
+category:
+  list: Category list
+  id: Id
+  add: Add
+  name: Name
+  edit: Edit Category
+  delete: Delete
+  list.return: Back to Category list
+  result: Result
+
+user:
+  index: User index
+  id: Id
+  username: Username
+  email: Email
+  roles: Role
+  add: Add
+  delete: Delete
+  edit: Edit 
+  add.name: Add a user name
+
+list:
+  return: Back to User index
 

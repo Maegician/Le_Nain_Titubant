@@ -10,12 +10,12 @@ menu:
   back: Retour à la page d'accueil
 
 beer:
-  add: Ajout
+  add: Ajouter une nouvelle bière
   category: Couleur
   delete: Supprimer
   name: Nom 
   list: Liste des bières
-  add.name: Nouvel ajout
+  add.name: Ajouter une nouvelle bière
   user: Utilisateur
   alcohol: Degrés
   image: Photo
@@ -25,8 +25,8 @@ beer:
   id: ID
   beer.image.webPath: Lien du fichier
   description: Description
+  add_score: Donner une note à cette bière
    
-
 form:
   name: Nom
   origin: Pays
@@ -38,8 +38,42 @@ form:
 
 image:
   file: Fichier
+  index: Index des images
+  id: Id
+  name: Nom du fichier
+  path: Chemin de fichier
+  add: Ajouter
+  delete: Supprimer
+  edit: Modifier l'image
 
 actions: Action
+
+category:
+  list: Liste des catégories
+  id: Id
+  add: Ajouter
+  name: Nom
+  edit: Modifier la catégorie
+  delete: Supprimer
+  list.return: Retour à la liste
+  result: Résultat
+
+user:
+  index: Liste des utilisateurs
+  id: Id
+  username: Nom d'utilisateur
+  email: Email
+  roles: Rôle
+  add: Ajouter
+  delete: Supprimer
+  edit: Modifier l'utilisateur
+  add.name: Ajouter un nom d'utilisateur
+
+list:
+  return: Retour à la liste
+
+
+
 
 
 
