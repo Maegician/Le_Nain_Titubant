@@ -31,8 +31,8 @@
 <div class="container-fluid" id="comments">
     <div class="row justify-content-center">
         <div class="col-10 col-md-7">
-            <form action="{{ path('app_beer_score', {'id' :beer.id}) }}" method="post" id="score-form" class="mb-5">
-                <h2 class="text-white">{{ 'beer.add_score_comment'|trans }}</h2>
+            <h2 class="text-white" data-toggle="collapse" data-target="#score-form" aria-expanded="false" aria-controls="collapseExample">{{ 'beer.add_score_comment'|trans }} <i class="fas fa-arrow-alt-circle-down"></i></h2>
+            <form action="{{ path('app_beer_score', {'id' :beer.id}) }}" method="post" id="score-form" class="mb-5 collapse">
                 <div class="alert alert-dark" role="alert">
                     Attention, vous ne pouvez évaluer qu'une fois chaque bière. Si vous publiez une nouvelle évaluation, la précédente sera supprimée.
                 </div>

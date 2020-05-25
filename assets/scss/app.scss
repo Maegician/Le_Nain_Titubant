@@ -785,6 +785,14 @@ footer a{
     border-bottom: 10px dashed $danger;
 }
 
+#comments h2{
+    transition: 500ms;
+}
+#comments h2:hover,
+#comments h2:active{
+    transform: translateX(10px);
+}
+
 ///////////////////////////////////////
 //FIN COMMENT
 /////////////////////////////////////// 
