@@ -50,7 +50,7 @@ class BeerController extends AbstractController
             //  $this->addFlash('success', $translator->trans('beer.add.success', ['%title%' => $beer->getTitle()]));
  
              // redirection
-             return $this->redirectToRoute('app_beer_index');
+             return $this->redirectToRoute('app_beer_admin');
          }
 
         // Ne pas oublier de créer le fichier twig
@@ -110,7 +110,7 @@ class BeerController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
             $this->addFlash('success', 'Bière modifiée');
-            return $this->redirectToRoute('app_beer_index');
+            return $this->redirectToRoute('app_beer_admin');
         }
         // Ne pas oublier de créer le fichier twig
         return $this->render('beer/edit.html.twig', ['beer' => $beer, 'form' => $form->createView()]);

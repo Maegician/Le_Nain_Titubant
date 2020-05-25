@@ -193,6 +193,10 @@ nav {
 //DEBUT CARD
 ///////////////////////////////////////
 
+a:hover {
+    text-decoration: none;
+}
+
 .card {
     -webkit-box-shadow: 10px 10px 10px 0px rgba(107,107,107,1);
     -moz-box-shadow: 10px 10px 10px 0px rgba(107,107,107,1);
@@ -206,7 +210,6 @@ nav {
 }
 
 .card:hover {
-    text-decoration: none;
     transform: translateY(-10px);
 }
 
@@ -221,8 +224,11 @@ nav {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0 );
 }
 
-.card li.list-group-item:hover {
-    text-decoration: none;
+@media (min-width : 768px) {
+    #details {
+        display: flex;
+        position: fixed;
+    }
 }
 
 ///////////////////////////////////////
