@@ -235,7 +235,13 @@ a:hover {
         position: sticky;
         top: 145px;
         z-index: -1;
-        
+    }  
+}
+
+@media (max-width : 960px) {
+    #card-container{
+        display: flex;
+        justify-content: center;
     }
 }
 
